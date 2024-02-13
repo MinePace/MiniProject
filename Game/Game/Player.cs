@@ -1,4 +1,4 @@
-class Player
+public class Player
 {   
     // Properties
     public int HP { get; set; }

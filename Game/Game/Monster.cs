@@ -1,4 +1,4 @@
-class Monsters
+public class Monster
 {    
     // Properties
     public int HP { get; set; }
@@ -8,7 +8,7 @@ class Monsters
     public string Name { get; set; }
 
     // Constructor
-    public Monsters(int hp, int maxHP, int id, int maxDamage, string name)
+    public Monster(int hp, int maxHP, int id, int maxDamage, string name)
     {
         HP = hp;
         MaxHP = maxHP;

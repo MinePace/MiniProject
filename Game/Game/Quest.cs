@@ -1,4 +1,4 @@
-class Quest
+public class Quest
 {
     // Properties
     public string Description { get; set; }

@@ -1,4 +1,4 @@
-class Weapon
+public class Weapon
 {   
     // Properties
     public int ID { get; set; }
