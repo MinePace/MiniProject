@@ -5,13 +5,18 @@ public class Program
 {
     public static void Main()
     {
-        Weapon spear = new Weapon(1, 30, "Dark Spear");
-        Weapon katana = new Weapon(2, 20, "Platinum Katana");
-        Monster Goblin = new Monster(100, 100, 1, spear, "Goblin");
-        Player player1 = new Player(100, "Starter area", katana, "Jef");
-
-        player1.attack_weapon(Goblin);
-        Goblin.attack_weapon(player1);
+        Weapon Spear = new Weapon(1, 30, "Dark Spear", 2, 0.2);
+        Weapon Katana = new Weapon(2, 20, "Platinum Katana", 3, 0.1);
+        Weapon BroadSword = new Weapon(3, 40, "Iron BroadSword", 1, 0);
+        Monster Goblin = new Monster(100, 100, 1, Spear, "Goblin");
+        Player Player1 = new Player(100, "Starter area", Katana, "Jef");
+        Player1.WeaponsInventory.Add(Katana);
+        Player1.WeaponsInventory.Add(BroadSword);
+        
+        Player1.ChangeWeapon();
+        
+        Player1.AttackWeapon(Goblin);
+        Goblin.AttackWeapon(Player1);
         ///hey
     }
 }

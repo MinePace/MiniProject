@@ -17,10 +17,22 @@ public class Monster
         Name = name;
     }
 
-    public void attack_weapon(Player player)
+    public void AttackWeapon(Player player)
     {
-        player.HP -= Weapon.MaxDamage;
-        Console.WriteLine($"The {player.Name} took {Weapon.MaxDamage} Damage from the {Name}'s {Weapon.Name}\nRemaining HP of {player.Name}: {player.HP}");
+        Random random = new Random();
+        double randomValue = random.NextDouble();
+        
+        if (randomValue < Weapon.CritChance)
+        {
+            int critDamage = (int)(Weapon.MaxDamage * Weapon.CritDamage);
+            player.HP -= critDamage;
+            Console.WriteLine($"Critical Hit! The {player.Name} took {critDamage} Damage from your {Weapon.Name}\nRemaining HP of {player.Name}: {player.HP}");
+        }
+        else
+        {
+            player.HP -= Weapon.MaxDamage;
+            Console.WriteLine($"The {player.Name} took {Weapon.MaxDamage} Damage from your {Weapon.Name}\nRemaining HP of {player.Name}: {player.HP}");
+        }
     }
 
 }

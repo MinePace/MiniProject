@@ -9,19 +9,19 @@
   },
   "packageFolders": {
     "C:\\Users\\japja\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "F:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\japja\\OneDrive - Hogeschool Rotterdam\\Documenten\\GitHub\\MiniProject\\Game\\Game\\Game.csproj",
+      "projectUniqueName": "E:\\GIT PROJECTS\\MiniProject\\Game\\Game\\Game.csproj",
       "projectName": "Game",
-      "projectPath": "C:\\Users\\japja\\OneDrive - Hogeschool Rotterdam\\Documenten\\GitHub\\MiniProject\\Game\\Game\\Game.csproj",
+      "projectPath": "E:\\GIT PROJECTS\\MiniProject\\Game\\Game\\Game.csproj",
       "packagesPath": "C:\\Users\\japja\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\japja\\OneDrive - Hogeschool Rotterdam\\Documenten\\GitHub\\MiniProject\\Game\\Game\\obj\\",
+      "outputPath": "E:\\GIT PROJECTS\\MiniProject\\Game\\Game\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "F:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
         "C:\\Users\\japja\\AppData\\Roaming\\NuGet\\NuGet.Config",
