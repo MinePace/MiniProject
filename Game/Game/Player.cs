@@ -92,4 +92,23 @@ public class Player
     {
         potion.PotionQuantity += 1;
     }
+
+    public void OpenInventory()
+    {
+        Console.WriteLine("Weapon Inventory: ");
+        foreach(Weapon weapon in WeaponsInventory)
+        {
+            Console.WriteLine($"{weapon.Name}, Damage: {weapon.MaxDamage}, Crit DMG Multiplier: {weapon.CritDamage}, Crit Chance: {weapon.CritChance}");
+        }
+        Console.WriteLine("\nPotion inventory:");
+        if(SmallPotionInventory.PotionQuantity > 0)
+        {
+        Console.WriteLine($"Small Health Potion, Amount left: {SmallPotionInventory.PotionQuantity}");
+        }
+        if(BigPotionInventory.PotionQuantity > 0)
+        {
+        Console.WriteLine($"Big Health Potion, Amount left: {BigPotionInventory.PotionQuantity}");
+        }
+    }
+
 }

@@ -17,17 +17,5 @@ public class Program
         SuperAdventure MainBattle = new SuperAdventure(Goblin, Player1);
         Player1.WeaponsInventory.Add(Katana);
         Player1.WeaponsInventory.Add(BroadSword);
-        
-        
-        Player1.ChangeWeapon();
-        Player1.GivePotion(BigHealthPotion);
-        Player1.GivePotion(SmallHealthPotion);
-
-        
-        MainBattle.CurrentMonster = Zombie;
-        MainBattle.FightMonster();
-        
-        
-        ///hey
     }
 }
