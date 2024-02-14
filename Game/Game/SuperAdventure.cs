@@ -9,4 +9,66 @@
         ThePlayer = theplayer;
      }
 
+     public bool FightMonster()
+     {
+         Console.WriteLine($"Fight started between {ThePlayer.Name} and {CurrentMonster.Name}.");
+         while(true)
+         {
+            Console.WriteLine($"(1) Use {ThePlayer.Weapon.Name}\n(2) Use Potion");
+            int choice = int.Parse(Console.ReadLine());
+
+            if (choice == 1)
+            {
+               ThePlayer.AttackWeapon(CurrentMonster);
+               if (CurrentMonster.HP <= 0)
+               {
+                  Console.WriteLine($"{CurrentMonster.Name} has been defeated");
+                  Console.WriteLine("You won the battle");
+                  return false;
+               }
+            }
+            if (choice == 2)
+            {
+               if (ThePlayer.SmallPotionInventory.PotionQuantity == 0 && ThePlayer.BigPotionInventory.PotionQuantity == 0)
+               {
+                  Console.WriteLine("No potions in inventory");
+               }
+               else
+               {
+                  Console.WriteLine($"(1) Use Small Health Potion, Amount left: {ThePlayer.SmallPotionInventory.PotionQuantity}");
+                  Console.WriteLine($"(2) Use Big Health Potion, Amount left: {ThePlayer.BigPotionInventory.PotionQuantity}");
+                  int potion_choise = int.Parse(Console.ReadLine());
+                  if(potion_choise == 1)
+                  {
+                     if(ThePlayer.SmallPotionInventory.PotionQuantity == 0){Console.WriteLine("No Small Health Potions left");}
+                     else
+                     {
+                     ThePlayer.HP += ThePlayer.SmallPotionInventory.PotionEffect;
+                     if(ThePlayer.HP > ThePlayer.Max_hp){ThePlayer.HP = ThePlayer.Max_hp;}
+                     ThePlayer.SmallPotionInventory.PotionQuantity -= 1;
+                     Console.WriteLine($"Potion Consumed, Current HP: {ThePlayer.HP}, {ThePlayer.SmallPotionInventory.Name} left: {ThePlayer.SmallPotionInventory.PotionQuantity}");
+                     }
+                  }
+                  if(potion_choise == 2)
+                  {
+                     if(ThePlayer.BigPotionInventory.PotionQuantity == 0){Console.WriteLine("No Big Health Potions left");}
+                     else
+                     {
+                        ThePlayer.HP += ThePlayer.BigPotionInventory.PotionEffect;
+                        if(ThePlayer.HP > ThePlayer.Max_hp){ThePlayer.HP = ThePlayer.Max_hp;}
+                        ThePlayer.BigPotionInventory.PotionQuantity -= 1;
+                        Console.WriteLine($"Potion Consumed, Current HP: {ThePlayer.HP}, {ThePlayer.BigPotionInventory.Name} left: {ThePlayer.BigPotionInventory.PotionQuantity}");
+                     }
+                  }
+               }
+            }    
+            CurrentMonster.AttackWeapon(ThePlayer);
+            if(ThePlayer.HP <= 0)
+            {
+               Console.WriteLine($"You have lost");
+               return false;
+            }  
+         }
+     }
+
 }

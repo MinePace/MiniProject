@@ -8,11 +8,12 @@ public class Player
     public int Max_hp = 100;
     public int Balance { get; set; }
     public List<Weapon> WeaponsInventory { get; set; }
-    public List<Potion> PotionInventory { get; set; }
+    public Potion SmallPotionInventory { get; set; }
+    public Potion BigPotionInventory { get; set; }
 
     
     // Constructor
-    public Player(int hp, string location, Weapon weapon, string name)
+    public Player(int hp, string location, Weapon weapon, string name, Potion smallpotioninventory, Potion bigpotioninventory)
     {
         HP = hp;
         Location = location;
@@ -21,7 +22,8 @@ public class Player
         Name = name;
         Balance = 0;
         WeaponsInventory = new List<Weapon>{};
-        PotionInventory = new List<Potion>{};
+        SmallPotionInventory = smallpotioninventory;
+        BigPotionInventory = bigpotioninventory;
         
     }
 
@@ -34,6 +36,7 @@ public class Player
         {
             int critDamage = (int)(Weapon.MaxDamage * Weapon.CritDamage);
             monster.HP -= critDamage;
+            if (monster.HP <= 0){monster.HP = 0;}
             Console.WriteLine($"Critical Hit! The {monster.Name} took {critDamage} Damage from your {Weapon.Name}\nRemaining HP of {monster.Name}: {monster.HP}");
         }
         else
@@ -83,5 +86,10 @@ public class Player
         HP += potion.PotionEffect;
         if (HP > Max_hp){HP = Max_hp;}
         Console.WriteLine($"HP after consuming potion: {HP}");
+    }
+
+    public void GivePotion(Potion potion)
+    {
+        potion.PotionQuantity += 1;
     }
 }
