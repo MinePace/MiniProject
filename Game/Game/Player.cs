@@ -48,7 +48,7 @@ public class Player
         int index = 1;
         foreach (Weapon weapon in WeaponsInventory)
         {
-            Console.WriteLine($"{index}. {weapon.Name} - Damage: {weapon.MaxDamage}, Crit Chance: {weapon.CritChance}");
+            Console.WriteLine($"{index}. {weapon.Name} - Damage: {weapon.MaxDamage}, Crit Damage Multiplier: {weapon.CritDamage}x, Crit Chance: {weapon.CritChance}");
             index++;
         }
 
@@ -57,16 +57,16 @@ public class Player
 
         if (int.TryParse(input, out int weaponIndex) && weaponIndex >= 1 && weaponIndex <= WeaponsInventory.Count)
         {
-            Weapon selectedWeapon = WeaponsInventory[weaponIndex - 1];
+            Weapon weapon = WeaponsInventory[weaponIndex - 1];
 
-            if (ReferenceEquals(selectedWeapon, Weapon))
+            if (ReferenceEquals(weapon, Weapon))
             {
-                Console.WriteLine($"Weapon {selectedWeapon.Name} is already selected.");
+                Console.WriteLine($"Weapon {weapon.Name} is already selected.");
             }
             else
             {
-                Weapon = selectedWeapon;
-                Console.WriteLine($"You've selected {selectedWeapon.Name}.\nDamage: {selectedWeapon.MaxDamage}, Crit Chance: {selectedWeapon.CritChance}");
+                Weapon = weapon;
+                Console.WriteLine($"You've equipped {weapon.Name}");
             }
         }
         else
