@@ -6,8 +6,9 @@ public class Player
     public Weapon Weapon { get; set; }
     public string Name { get; set; }
     public int Max_hp = 100;
-    public int Balance;
-    public List<Weapon> WeaponsInventory;
+    public int Balance { get; set; }
+    public List<Weapon> WeaponsInventory { get; set; }
+    public List<Potion> PotionInventory { get; set; }
 
     
     // Constructor
@@ -20,6 +21,7 @@ public class Player
         Name = name;
         Balance = 0;
         WeaponsInventory = new List<Weapon>{};
+        PotionInventory = new List<Potion>{};
         
     }
 
@@ -75,8 +77,11 @@ public class Player
         }
     }
 
-
-
-
-
+    public void ConsumePotion(Potion potion)
+    {
+        Console.WriteLine($"You consumed a {potion.Name} for {potion.PotionEffect} HP");
+        HP += potion.PotionEffect;
+        if (HP > Max_hp){HP = Max_hp;}
+        Console.WriteLine($"HP after consuming potion: {HP}");
+    }
 }

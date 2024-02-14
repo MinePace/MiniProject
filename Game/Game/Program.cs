@@ -10,13 +10,16 @@ public class Program
         Weapon BroadSword = new Weapon(3, 40, "Iron BroadSword", 1, 0);
         Monster Goblin = new Monster(100, 100, 1, Spear, "Goblin");
         Player Player1 = new Player(100, "Starter area", Katana, "Jef");
+        Potion SmallHealthPotion = new Potion("Small Health Potion", "Potion that heals for 50HP", 50);
         Player1.WeaponsInventory.Add(Katana);
         Player1.WeaponsInventory.Add(BroadSword);
         
-        Player1.ChangeWeapon();
+        
         
         Player1.AttackWeapon(Goblin);
         Goblin.AttackWeapon(Player1);
+        Goblin.AttackWeapon(Player1);
+        Player1.ConsumePotion(SmallHealthPotion);
         ///hey
     }
 }
