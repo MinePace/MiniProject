@@ -5,8 +5,6 @@ public class Program
 {
     public static void Main()
     {
-        // window title
-        Console.Title = "Game";
         // instancing weapons
         Weapon Spear = new Weapon(1, 30, "Dark Spear", 2, 0.2);
         Weapon Katana = new Weapon(2, 20, "Platinum Katana", 3, 0.15);
@@ -18,7 +16,7 @@ public class Program
 
         // instancing MobDrops
         MonsterDrop RottenFlesh = new MonsterDrop("Rotten flesh", "Flesh of a dead zombie", 0);
-        MonsterDrop GoblinTeeth = new MonsterDrop("Goblin teeth", "Teeth of a goblin", 0);
+        MonsterDrop GoblinTeeth = new MonsterDrop("Goblin teeth", "Teeth of a goblin", 2);
 
         // instancing Monsters
         Monster Goblin = new Monster(100, 100, 1, Spear, "Goblin", GoblinTeeth, 0.80);
@@ -33,6 +31,7 @@ public class Program
         // adding stuff to inventory
         Player1.WeaponsInventory.Add(Katana);
         Player1.WeaponsInventory.Add(BroadSword);
+        Player1.BigPotionInventory.PotionQuantity += 10;
 
         Player1.MonsterDropsInventory.Add(GoblinTeeth);
         Player1.MonsterDropsInventory.Add(RottenFlesh);
@@ -79,8 +78,16 @@ knowing your fate is entwined with theirs.",
             "Echoes of Obligation",
             4);
 
-        Console.WriteLine(fieldFrenzyQuest.Description);
-        // keeps console open
-        Console.ReadKey();
+        MainBattle.FightMonster();
+        Player1.HP = Player1.Max_hp;
+        Player1.OpenInventory();
+        MainBattle.FightMonster();
+        Player1.OpenInventory();
+        Player1.HP = Player1.Max_hp;
+        MainBattle.FightMonster();
+        Player1.OpenInventory();
+
+
+    
     }
 }

@@ -25,6 +25,7 @@
                   Console.WriteLine($"{CurrentMonster.Name} has been defeated");
                   Console.WriteLine("You won the battle");
                   ThePlayer.DropMonsterItem(CurrentMonster);
+                  CurrentMonster.HP = CurrentMonster.MaxHP;
                   return false;
                }
             }
@@ -67,6 +68,9 @@
             if(ThePlayer.HP <= 0)
             {
                Console.WriteLine($"You have lost");
+               Console.WriteLine($"You have a {CurrentMonster.ItemDrop.Name}");
+               CurrentMonster.ItemDrop.DropQuantity -= 1;
+               if (CurrentMonster.ItemDrop.DropQuantity < 0){CurrentMonster.ItemDrop.DropQuantity = 0;}
                return false;
             }  
          }
