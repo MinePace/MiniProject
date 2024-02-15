@@ -17,5 +17,18 @@ public class Program
         SuperAdventure MainBattle = new SuperAdventure(Goblin, Player1);
         Player1.WeaponsInventory.Add(Katana);
         Player1.WeaponsInventory.Add(BroadSword);
+
+        Player1.OpenOptions();
+        
+        Console.WriteLine("Start Battle?");
+        Console.WriteLine();
+        
+        MainBattle.CurrentMonster = Zombie;
+        MainBattle.FightMonster();
+        
+        Player1.BigPotionInventory.PotionQuantity += 3;
+
+        MainBattle.CurrentMonster = Goblin;
+        MainBattle.FightMonster();
     }
 }

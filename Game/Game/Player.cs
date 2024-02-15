@@ -42,6 +42,7 @@ public class Player
         else
         {
             monster.HP -= Weapon.MaxDamage;
+            if (monster.HP <= 0){monster.HP = 0;}
             Console.WriteLine($"The {monster.Name} took {Weapon.MaxDamage} Damage from your {Weapon.Name}\nRemaining HP of {monster.Name}: {monster.HP}");
         }
     }
@@ -78,6 +79,7 @@ public class Player
         {
             Console.WriteLine("Invalid input. Please enter a valid number.");
         }
+        Console.WriteLine("\n");
     }
 
     public void ConsumePotion(Potion potion)
@@ -109,6 +111,24 @@ public class Player
         {
         Console.WriteLine($"Big Health Potion, Amount left: {BigPotionInventory.PotionQuantity}");
         }
+    Console.WriteLine("\n");
     }
 
+    public void ExitGame()
+    {
+        Environment.Exit(0);
+    }
+
+    public bool OpenOptions()
+    {
+        while(true)
+        {
+            Console.WriteLine("(1) Switch weapon\n(2) Open inventory\n(3) Exit game (all progress lost)\n(4) Exit options");
+            string choice = Console.ReadLine();
+            if (choice == "1"){ChangeWeapon();}
+            if (choice == "2"){OpenInventory();}
+            if (choice == "3"){ExitGame();}
+            if (choice == "4"){return false;}
+        }
+    }
 }
