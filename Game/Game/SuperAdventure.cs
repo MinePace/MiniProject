@@ -24,6 +24,7 @@
                {
                   Console.WriteLine($"{CurrentMonster.Name} has been defeated");
                   Console.WriteLine("You won the battle");
+                  ThePlayer.DropMonsterItem(CurrentMonster);
                   return false;
                }
             }
