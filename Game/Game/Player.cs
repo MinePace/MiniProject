@@ -201,10 +201,23 @@ W--+--E
         {
             Console.WriteLine("(1) Switch weapon\n(2) Open inventory\n(3) Exit game (all progress lost)\n(4) Exit options");
             string choice = Console.ReadLine();
-            if (choice == "1"){ChangeWeapon();}
-            if (choice == "2"){OpenInventory();}
-            if (choice == "3"){ExitGame();}
-            if (choice == "4"){return false;}
+            switch(Convert.ToInt16(choice))
+            {
+                case 1:
+                    ChangeWeapon();
+                    break;
+
+                case 2:
+                    OpenInventory();
+                    break;
+
+                case 3:
+                    ExitGame();
+                    break;
+
+                case 4:
+                    return false;
+            }
         }
     }
 
