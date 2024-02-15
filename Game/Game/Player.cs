@@ -27,6 +27,7 @@ public class Player
         WeaponsInventory = new List<Weapon>{};
         SmallPotionInventory = smallpotioninventory;
         BigPotionInventory = bigpotioninventory;
+        MonsterDropsInventory = new List<MonsterDrop>{};
         
     }
 

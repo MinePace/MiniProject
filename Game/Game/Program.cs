@@ -5,6 +5,8 @@ public class Program
 {
     public static void Main()
     {
+        // window title
+        Console.Title = "Game";
         // instancing weapons
         Weapon Spear = new Weapon(1, 30, "Dark Spear", 2, 0.2);
         Weapon Katana = new Weapon(2, 20, "Platinum Katana", 3, 0.15);
@@ -32,17 +34,8 @@ public class Program
         Player1.WeaponsInventory.Add(Katana);
         Player1.WeaponsInventory.Add(BroadSword);
 
-        Player1.OpenOptions();
-        
-        
-        MainBattle.CurrentMonster = Zombie;
-        MainBattle.FightMonster();
-        
-        Player1.BigPotionInventory.PotionQuantity += 3;
-
-        MainBattle.CurrentMonster = Goblin;
-        MainBattle.FightMonster();
-        Player1.Compass();
+        Player1.MonsterDropsInventory.Add(GoblinTeeth);
+        Player1.MonsterDropsInventory.Add(RottenFlesh);
 
         // instancing Quests
         Quest fieldFrenzyQuest = new Quest(
@@ -86,5 +79,8 @@ knowing your fate is entwined with theirs.",
             "Echoes of Obligation",
             4);
 
+        Console.WriteLine(fieldFrenzyQuest.Description);
+        // keeps console open
+        Console.ReadKey();
     }
 }
