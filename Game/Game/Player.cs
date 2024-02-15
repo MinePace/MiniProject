@@ -249,6 +249,7 @@ W--+--E
     {
         Console.WriteLine("You blacked out you wake up at home.");
         Location = "Your House";
+        HP = Max_hp;
     }
 
     public void LevelUp()

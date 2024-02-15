@@ -11,7 +11,7 @@
 
      public bool FightMonster()
      {
-         Console.WriteLine($"Fight started between {ThePlayer.Name} and {CurrentMonster.Name}.");
+         Console.WriteLine($"\nFight started between {ThePlayer.Name} and {CurrentMonster.Name}.");
          while(true)
          {
             Console.WriteLine($"(1) Use {ThePlayer.Weapon.Name}\n(2) Use Potion");
@@ -77,5 +77,4 @@
             }  
          }
      }
-
 }

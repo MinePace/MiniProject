@@ -12,7 +12,7 @@ public class Program
 
         // instancing weapons
         Weapon Spear = new Weapon(101, 30, "Dark Spear", 2, 0.2);
-        Weapon Katana = new Weapon(102, 20, "Platinum Katana", 3, 0.15);
+        Weapon OldRustySword = new Weapon(102, 20, "Old Rusty Sword", 2, 0.15);
         Weapon BroadSword = new Weapon(103, 40, "Iron BroadSword", 1, 0);
         Weapon FarmersScythe = new Weapon(104, 35, "Harvestbane", 2, 0.3);
         
@@ -35,13 +35,13 @@ public class Program
         // instancing player
         Console.WriteLine("What is your name?:");
         string playername = Console.ReadLine();
-        Player Player1 = new Player(100, "Starter area", Katana, playername , SmallHealthPotion, BigHealthPotion);
+        Player Player1 = new Player(100, "Starter area", OldRustySword, playername , SmallHealthPotion, BigHealthPotion);
 
         //random bog
         SuperAdventure MainBattle = new SuperAdventure(Goblin, Player1);
 
         // adding stuff to inventory
-        Player1.WeaponsInventory.Add(Katana);
+        Player1.WeaponsInventory.Add(OldRustySword);
         Player1.WeaponsInventory.Add(BroadSword);
         Player1.WeaponsInventory.Add(TESTING_PURPOSES);
         Player1.BigPotionInventory.PotionQuantity += 10;
@@ -100,14 +100,10 @@ knowing your fate is entwined with theirs.",
         Npc Azazel = new Npc("Azazel the Fallen Overlord", "", 5, Thefallenoverlord);
 
         Player1.ChangeWeapon();
-        MainBattle.FightMonster();
-        Player1.HP = Player1.Max_hp;
-        MainBattle.FightMonster();
-        MainBattle.FightMonster();
-        MainBattle.FightMonster();
-        MainBattle.FightMonster();
-        Player1.HP = Player1.Max_hp;
-        MainBattle.FightMonster();
+        while(Player1.PlayerLevel == 1)
+        {
+            MainBattle.FightMonster();
+        }
 
 
         
