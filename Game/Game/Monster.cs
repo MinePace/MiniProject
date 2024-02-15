@@ -6,15 +6,19 @@ public class Monster
     public int ID { get; set; }
     public Weapon Weapon { get; set; }
     public string Name { get; set; }
+    public MonsterDrop ItemDrop { get; set; }
+    public double ItemDropChance { get; set; }
 
     // Constructor
-    public Monster(int hp, int maxHP, int id, Weapon weapon, string name)
+    public Monster(int hp, int maxHP, int id, Weapon weapon, string name, MonsterDrop itemdrop, double itemdropchance)
     {
         HP = hp;
         MaxHP = maxHP;
         ID = id;
         Weapon = weapon;
         Name = name;
+        ItemDrop = itemdrop;
+        ItemDropChance = itemdropchance;
     }
 
     public void AttackWeapon(Player player)

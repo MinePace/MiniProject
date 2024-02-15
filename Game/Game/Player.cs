@@ -9,6 +9,7 @@ public class Player
     public string Name { get; set; }
     public int Max_hp = 100;
     public int Balance { get; set; }
+    public List<MonsterDrop> MonsterDropsInventory { get; set; }
     public List<Weapon> WeaponsInventory { get; set; }
     public Potion SmallPotionInventory { get; set; }
     public Potion BigPotionInventory { get; set; }
@@ -205,4 +206,17 @@ W--+--E
             if (choice == "4"){return false;}
         }
     }
+
+    public void DropMonsterItem(Monster monster)
+    {
+        Random random = new Random();
+        int randomNumber = random.Next(1, 4);
+        double randomdouble = random.NextDouble();
+
+        if (randomdouble < monster.ItemDropChance)
+        {
+            monster.ItemDrop.DropQuantity += randomNumber;
+        }
+    }
+        
 }
