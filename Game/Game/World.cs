@@ -56,7 +56,7 @@ class World
                             break;
 
                         case "S":
-                            NewLocation = "Hour House";
+                            NewLocation = "Your House";
                             check = false;
                             break;
 
