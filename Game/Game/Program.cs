@@ -13,9 +13,11 @@ public class Program
         Potion BigHealthPotion = new Potion("Big Health Potion", "Potion that heals for 100HP ", 100, 0);
         Monster Goblin = new Monster(100, 100, 1, Spear, "Goblin");
         Monster Zombie = new Monster(100, 100, 1, BroadSword, "Zombie");
-        Player Player1 = new Player(100, "Starter area", Katana, "Jef", SmallHealthPotion, BigHealthPotion);
+        Player Player1 = new Player(100, "Town Square", Katana, "Jef", SmallHealthPotion, BigHealthPotion);
         SuperAdventure MainBattle = new SuperAdventure(Goblin, Player1);
         Player1.WeaponsInventory.Add(Katana);
         Player1.WeaponsInventory.Add(BroadSword);
+
+        Player1.Compass();
     }
 }
