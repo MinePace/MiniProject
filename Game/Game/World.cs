@@ -2,10 +2,16 @@ class World
 {   
     public void Text_Display(string text)
     {
-        for (int i = 0; i < text.Length + 1; ++i)
+        string[] lines = text.Split('\n');
+        foreach (string line in lines)
         {
-            Thread.Sleep(20);
-            Console.Write("\r{0}", text.Substring(0, i));
+            for (int i = 0; i < line.Length; ++i)
+            {
+                Thread.Sleep(20);
+                Console.Write("\r{0}", line.Substring(0, i + 1));
+            }
+            Thread.Sleep(200); // Add a pause between lines
+            Console.WriteLine(); // Move to the next line
         }
     }
 }
