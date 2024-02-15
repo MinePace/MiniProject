@@ -14,6 +14,7 @@ public class Program
         Weapon Spear = new Weapon(101, 30, "Dark Spear", 2, 0.2);
         Weapon Katana = new Weapon(102, 20, "Platinum Katana", 3, 0.15);
         Weapon BroadSword = new Weapon(103, 40, "Iron BroadSword", 1, 0);
+        Weapon TESTING_PURPOSES = new Weapon(999, 100, "TEST SWORD", 4, 1);
 
         // instancing Potions
         Potion SmallHealthPotion = new Potion("Small Health Potion", "Potion that heals for 50HP", 50, 0);
@@ -40,6 +41,7 @@ public class Program
         // adding stuff to inventory
         Player1.WeaponsInventory.Add(Katana);
         Player1.WeaponsInventory.Add(BroadSword);
+        Player1.WeaponsInventory.Add(TESTING_PURPOSES);
         Player1.BigPotionInventory.PotionQuantity += 10;
 
         Player1.MonsterDropsInventory.Add(GoblinTeeth);
@@ -95,6 +97,7 @@ knowing your fate is entwined with theirs.",
         Npc Unknown = new Npc("???", "???",4, echoesOfObligationQuest);
         Npc Azazel = new Npc("Azazel the Fallen Overlord", "", 5, Thefallenoverlord);
 
+        Player1.ChangeWeapon();
         MainBattle.FightMonster();
         Player1.HP = Player1.Max_hp;
         Player1.OpenInventory();
@@ -103,8 +106,5 @@ knowing your fate is entwined with theirs.",
         Player1.HP = Player1.Max_hp;
         MainBattle.FightMonster();
         Player1.OpenInventory();
-
-
-    
     }
 }

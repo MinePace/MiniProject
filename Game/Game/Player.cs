@@ -13,6 +13,8 @@ public class Player
     public List<Weapon> WeaponsInventory { get; set; }
     public Potion SmallPotionInventory { get; set; }
     public Potion BigPotionInventory { get; set; }
+    public int PlayerEXP { get; set; }
+    public int PlayerLevel { get; set; }
 
     
     // Constructor
@@ -28,6 +30,8 @@ public class Player
         SmallPotionInventory = smallpotioninventory;
         BigPotionInventory = bigpotioninventory;
         MonsterDropsInventory = new List<MonsterDrop>{};
+        PlayerEXP = 0;
+        PlayerLevel = 1;
         
     }
 
@@ -239,6 +243,25 @@ W--+--E
         {
             monster.ItemDrop.DropQuantity += randomNumber;
         }
+    }   
+
+    public void WipeOut()
+    {
+        Console.WriteLine("You blacked out you wake up at home.");
+        Location = "Your House";
     }
-        
+
+    public void LevelUp()
+    {
+        PlayerEXP += 20;
+        PlayerLevel += 1;
+        if(PlayerEXP >= 100)
+        {
+            Max_hp += 20;
+            Weapon.CritChance += 0.5;
+            Console.WriteLine($"You have leveled up. New Level: {PlayerLevel}");
+            if (Max_hp > 500){Max_hp = 500;}
+            if (Weapon.CritChance > 1){Weapon.CritChance = 1;}
+        }
+    }
 }
