@@ -5,6 +5,9 @@ public class Program
 {
     public static void Main()
     {
+        // Window title
+        Console.Title = "Game"; 
+
         // instancing weapons for monster
         Weapon Goblindagger = new Weapon(1, 30, "Goblin Dagger", 2, 0.2);
         Weapon Zombiesword = new Weapon(2, 20, "Zombie sword", 2, 0.2);
@@ -15,6 +18,7 @@ public class Program
         Weapon OldRustySword = new Weapon(102, 20, "Old Rusty Sword", 2, 0.15);
         Weapon BroadSword = new Weapon(103, 40, "Iron BroadSword", 1, 0);
         Weapon FarmersScythe = new Weapon(104, 35, "Harvestbane", 2, 0.3);
+        Weapon BladeofDesolation = new Weapon(666, 100, "Blade of Desolation",3, 0.5); 
         
         Weapon TESTING_PURPOSES = new Weapon(999, 100, "TEST SWORD", 4, 1);
 
@@ -26,12 +30,17 @@ public class Program
         MonsterDrop RottenFlesh = new MonsterDrop("Rotten flesh", "Flesh of a dead zombie", 0);
         MonsterDrop GoblinTeeth = new MonsterDrop("Goblin teeth", "Teeth of a goblin", 2);
         MonsterDrop Spidereye = new MonsterDrop("Spider Eye", "Eye of a spider", 1);
+        MonsterDrop BladeofDesolation_item = new MonsterDrop("Blade of Desolation", @"The Blade of Desolation is a massive two-handed sword, 
+its blade as black as the void itself and pulsating with malevolent energy.
+It is adorned with intricate runes that writhe and twist with dark power, emanating an aura of dread to all who dare to gaze upon it.",1);
 
         // instancing Monsters
         Monster Goblin = new Monster(100, 100, 1, Goblindagger, "Goblin", GoblinTeeth, 0.80);
         Monster Zombie = new Monster(100, 100, 2, Zombiesword, "Zombie", RottenFlesh, 0.70);
         Monster Spider = new Monster(100, 100, 3, Spiderfangs, "Spider", Spidereye, 0.30);
-         
+        Monster Azazel = new Monster(2000, 2000, 666, BladeofDesolation, "Azazel", BladeofDesolation_item, 1);
+
+
         // instancing player
         Console.WriteLine("What is your name?:");
         string playername = Console.ReadLine();
