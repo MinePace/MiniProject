@@ -188,5 +188,21 @@ W--+--E
         Console.WriteLine(Location);
     }
 
-    
+    public void ExitGame()
+    {
+        Environment.Exit(0);
+    }
+
+    public bool OpenOptions()
+    {
+        while(true)
+        {
+            Console.WriteLine("(1) Switch weapon\n(2) Open inventory\n(3) Exit game (all progress lost)\n(4) Exit options");
+            string choice = Console.ReadLine();
+            if (choice == "1"){ChangeWeapon();}
+            if (choice == "2"){OpenInventory();}
+            if (choice == "3"){ExitGame();}
+            if (choice == "4"){return false;}
+        }
+    }
 }

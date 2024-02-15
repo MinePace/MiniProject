@@ -30,8 +30,6 @@ public class Program
 
         Player1.OpenOptions();
         
-        Console.WriteLine("Start Battle?");
-        Console.WriteLine();
         
         MainBattle.CurrentMonster = Zombie;
         MainBattle.FightMonster();
