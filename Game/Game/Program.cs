@@ -14,6 +14,8 @@ public class Program
         Weapon Spear = new Weapon(101, 30, "Dark Spear", 2, 0.2);
         Weapon Katana = new Weapon(102, 20, "Platinum Katana", 3, 0.15);
         Weapon BroadSword = new Weapon(103, 40, "Iron BroadSword", 1, 0);
+        Weapon FarmersScythe = new Weapon(104, 35, "Harvestbane", 2, 0.3);
+        
         Weapon TESTING_PURPOSES = new Weapon(999, 100, "TEST SWORD", 4, 1);
 
         // instancing Potions

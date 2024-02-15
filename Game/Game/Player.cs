@@ -259,6 +259,7 @@ W--+--E
         {
             PlayerLevel += 1;
             Max_hp += 20;
+            HP += 20;
             Weapon.CritChance += 0.5;
             Console.WriteLine($"You have leveled up. New Level: {PlayerLevel}");
             if (Max_hp > 500){Max_hp = 500;}
