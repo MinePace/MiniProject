@@ -17,21 +17,204 @@ class World
         }
     }
 
-    public void MovePlayer(string currentPos)
+    public string MovePlayer(string currentPos)
     {
+        string NewLocation = currentPos;
         Console.WriteLine("Where do you want to go?");
-        Console.WriteLine("These are the directions to go.");
+        Console.WriteLine("These are the directions to go to.");
         Compass(currentPos);
-        while(true)
+
+        bool check = true;
+        while(check)
         {
             string input = Console.ReadLine();
             if(input == "N" || input =="S" || input =="E" || input =="W")
             {
-                locations(input, currentPos);
-            }
-        }
+                if (currentPos == "Your House")
+                {
+                    switch(input)
+                    {
+                        case "N":
+                            NewLocation = "Town Square";
+                            check = false;
+                            break;
 
-        //Console.WriteLine($"Moving to {NewLocation}"); 
+                        default:
+                            Console.WriteLine("That is not a valid input.");
+                            break;
+
+                    }
+                }
+
+                else if(currentPos == "Town Square")
+                {
+                    switch(input)
+                    {
+                        case "N":
+                            NewLocation = "Alchemist's Hut";
+                            check = false;
+                            break;
+
+                        case "S":
+                            NewLocation = "Your House";
+                            check = false;
+                            break;
+
+                        case "E":
+                            NewLocation = "Guard Post";
+                            check = false;
+                            break;
+
+                        case "W":
+                            NewLocation = "Farmer";
+                            check = false;
+                            break;
+
+                        default:
+                            Console.WriteLine("That is not a valid input.");
+                            break;
+
+                    }
+                }
+
+                else if(currentPos == "Alchemist's Hut")
+                {
+                    switch(input)
+                    {
+                        case "N":
+                            NewLocation = "Alchemist's Garden";
+                            check = false;
+                            break;
+
+                        case "S":
+                            NewLocation = "Town Square";
+                            check = false;
+                            break;
+
+                        default:
+                            Console.WriteLine("That is not a valid input.");
+                            break;                    
+
+                    }
+                }
+
+                else if(currentPos == "Alchemist's Garden")
+                {
+                    switch(input)
+                    {
+                        case "S":
+                            NewLocation = "Alchemist's Hut";
+                            check = false;
+                            break;
+
+                        default:
+                            Console.WriteLine("That is not a valid input.");
+                            break;                    
+
+                    }
+                }
+
+                else if(currentPos == "Famer")
+                {
+                    switch(input)
+                    {
+                        case "E":
+                            NewLocation = "Town Square";
+                            check = false;
+                            break;
+
+                        case "W":
+                            NewLocation = "Farmer's Field";
+                            check = false;
+                            break;
+
+                        default:
+                            Console.WriteLine("That is not a valid input.");
+                            break;                    
+
+                    }
+                }
+
+                else if(currentPos == "Farmer's Field")
+                {
+                    switch(input)
+                    {
+                        case "E":
+                            NewLocation = "Farmer";
+                            check = false;
+                            break;
+
+                        default:
+                            Console.WriteLine("That is not a valid input.");
+                            break;                    
+
+                    }
+                }
+                else if(currentPos == "Guard Post")
+                {
+                    switch(input)
+                    {
+                        case "E":
+                            NewLocation = "Bridge";
+                            check = false;
+                            break;
+
+                        case "W":
+                            NewLocation = "Town Square";
+                            check = false;
+                            break;
+
+                        default:
+                            Console.WriteLine("That is not a valid input.");
+                            break;                 
+
+                    }
+                }
+
+                else if(currentPos == "Bridge")
+                {
+                    switch(input)
+                    {
+                        case "E":
+                            NewLocation = "Spider Forest";
+                            check = false;
+                            break;
+
+                        case "W":
+                            NewLocation = "Guard Post";
+                            check = false;
+                            break;
+
+                        default:
+                            Console.WriteLine("That is not a valid input.");
+                            break;
+
+                    }
+                }
+
+                else if(currentPos == "Spider Forest")
+                {
+                    switch(input)
+                    {
+                        case "W":
+                            NewLocation = "Bridge";
+                            check = false;
+                            break;
+
+                        default:
+                            Console.WriteLine("That is not a valid input.");
+                            break;
+
+                    }
+                }
+            }
+
+            else{Console.WriteLine("That is not a valid input.");}
+        
+
+        }
+        Console.WriteLine($"Moving to {NewLocation}");
+        return NewLocation;
     }
 
     public void Compass(string Location)
@@ -105,18 +288,20 @@ W--+--E
         }
     }
 
-    public void locations(string diraction, string location)
+    public bool locations(string direction, string location)
     {
         switch(location)
         {
             case "Your House":
-                if(diraction != "N")
+                if(direction == "N")
                 {
-                    Console.WriteLine("That is not a valid diraction.");
+                    return true;
                 }
                 break;
 
         }
+        Console.WriteLine("That is not a valid direction.");
+        return false;
     }
 }
 
