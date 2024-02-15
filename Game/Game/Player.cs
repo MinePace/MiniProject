@@ -106,6 +106,15 @@ public class Player
         {
             Console.WriteLine($"{weapon.Name}, Damage: {weapon.MaxDamage}, Crit DMG Multiplier: {weapon.CritDamage}, Crit Chance: {weapon.CritChance}");
         }
+
+        Console.WriteLine("\nDrops inventory: ");
+        {
+            foreach (MonsterDrop drop in MonsterDropsInventory)
+            {
+                Console.WriteLine($"{drop.Name}, Description: {drop.Description}, Quantity: {drop.DropQuantity}");
+            }
+        }
+
         Console.WriteLine("\nPotion inventory:");
         if(SmallPotionInventory.PotionQuantity > 0)
         {
@@ -113,9 +122,8 @@ public class Player
         }
         if(BigPotionInventory.PotionQuantity > 0)
         {
-        Console.WriteLine($"Big Health Potion, Amount left: {BigPotionInventory.PotionQuantity}");
+        Console.WriteLine($"Big Health Potion, Amount left: {BigPotionInventory.PotionQuantity}\n");
         }
-    Console.WriteLine("\n");
     }
 
     public void Compass()

@@ -5,12 +5,15 @@ public class Program
 {
     public static void Main()
     {
-        // window title
-        Console.Title = "Game";
+        // instancing weapons for monster
+        Weapon Goblindagger = new Weapon(1, 30, "Goblin Dagger", 2, 0.2);
+        Weapon Zombiesword = new Weapon(2, 20, "Zombie sword", 2, 0.2);
+        Weapon Spiderfangs = new Weapon(3, 40, "Spider fangs", 2, 0.2);
+
         // instancing weapons
-        Weapon Spear = new Weapon(1, 30, "Dark Spear", 2, 0.2);
-        Weapon Katana = new Weapon(2, 20, "Platinum Katana", 3, 0.15);
-        Weapon BroadSword = new Weapon(3, 40, "Iron BroadSword", 1, 0);
+        Weapon Spear = new Weapon(101, 30, "Dark Spear", 2, 0.2);
+        Weapon Katana = new Weapon(102, 20, "Platinum Katana", 3, 0.15);
+        Weapon BroadSword = new Weapon(103, 40, "Iron BroadSword", 1, 0);
 
         // instancing Potions
         Potion SmallHealthPotion = new Potion("Small Health Potion", "Potion that heals for 50HP", 50, 0);
@@ -18,14 +21,18 @@ public class Program
 
         // instancing MobDrops
         MonsterDrop RottenFlesh = new MonsterDrop("Rotten flesh", "Flesh of a dead zombie", 0);
-        MonsterDrop GoblinTeeth = new MonsterDrop("Goblin teeth", "Teeth of a goblin", 0);
+        MonsterDrop GoblinTeeth = new MonsterDrop("Goblin teeth", "Teeth of a goblin", 2);
+        MonsterDrop Spidereye = new MonsterDrop("Spider Eye", "Eye of a spider", 1);
 
         // instancing Monsters
-        Monster Goblin = new Monster(100, 100, 1, Spear, "Goblin", GoblinTeeth, 0.80);
-        Monster Zombie = new Monster(100, 100, 1, BroadSword, "Zombie", RottenFlesh, 0.70);
+        Monster Goblin = new Monster(100, 100, 1, Goblindagger, "Goblin", GoblinTeeth, 0.80);
+        Monster Zombie = new Monster(100, 100, 2, Zombiesword, "Zombie", RottenFlesh, 0.70);
+        Monster Spider = new Monster(100, 100, 3, Spiderfangs, "Spider", Spidereye, 0.30);
          
         // instancing player
-        Player Player1 = new Player(100, "Starter area", Katana, "Jef", SmallHealthPotion, BigHealthPotion);
+        Console.WriteLine("What is your name?:");
+        string playername = Console.ReadLine();
+        Player Player1 = new Player(100, "Starter area", Katana, playername , SmallHealthPotion, BigHealthPotion);
 
         //random bog
         SuperAdventure MainBattle = new SuperAdventure(Goblin, Player1);
@@ -33,6 +40,7 @@ public class Program
         // adding stuff to inventory
         Player1.WeaponsInventory.Add(Katana);
         Player1.WeaponsInventory.Add(BroadSword);
+        Player1.BigPotionInventory.PotionQuantity += 10;
 
         Player1.MonsterDropsInventory.Add(GoblinTeeth);
         Player1.MonsterDropsInventory.Add(RottenFlesh);
@@ -78,9 +86,25 @@ With no choice but to comply, you prepare for the journey ahead,
 knowing your fate is entwined with theirs.",
             "Echoes of Obligation",
             4);
+        Quest Thefallenoverlord = new Quest("Defeat the fallen overloard", "The fallen Overlord", 5);
 
-        Console.WriteLine(fieldFrenzyQuest.Description);
-        // keeps console open
-        Console.ReadKey();
+        // instancing Npc
+        Npc Farmer_joe = new Npc("Farmer Joe", "Im a farmer", 1, fieldFrenzyQuest);
+        Npc Miner_dig = new Npc("Miner Dig", "Im a miner", 2, MinersMercyQuest);
+        Npc Voices = new Npc("The Voices", "", 3, radiantResonanceQuest);
+        Npc Unknown = new Npc("???", "???",4, echoesOfObligationQuest);
+        Npc Azazel = new Npc("Azazel the Fallen Overlord", "", 5, Thefallenoverlord);
+
+        MainBattle.FightMonster();
+        Player1.HP = Player1.Max_hp;
+        Player1.OpenInventory();
+        MainBattle.FightMonster();
+        Player1.OpenInventory();
+        Player1.HP = Player1.Max_hp;
+        MainBattle.FightMonster();
+        Player1.OpenInventory();
+
+
+    
     }
 }
