@@ -100,11 +100,14 @@ knowing your fate is entwined with theirs.",
         Player1.ChangeWeapon();
         MainBattle.FightMonster();
         Player1.HP = Player1.Max_hp;
-        Player1.OpenInventory();
         MainBattle.FightMonster();
-        Player1.OpenInventory();
+        MainBattle.FightMonster();
+        MainBattle.FightMonster();
+        MainBattle.FightMonster();
         Player1.HP = Player1.Max_hp;
         MainBattle.FightMonster();
-        Player1.OpenInventory();
+
+
+        
     }
 }

@@ -254,9 +254,10 @@ W--+--E
     public void LevelUp()
     {
         PlayerEXP += 20;
-        PlayerLevel += 1;
-        if(PlayerEXP >= 100)
+
+        if (PlayerEXP >= 100 + 20 * (PlayerLevel - 1))
         {
+            PlayerLevel += 1;
             Max_hp += 20;
             Weapon.CritChance += 0.5;
             Console.WriteLine($"You have leveled up. New Level: {PlayerLevel}");
