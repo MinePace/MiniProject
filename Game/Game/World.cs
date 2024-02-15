@@ -1,3 +1,5 @@
+using System.Diagnostics.Contracts;
+
 class World
 {   
     public void Text_Display(string text)
@@ -20,6 +22,16 @@ class World
         Console.WriteLine("Where do you want to go?");
         Console.WriteLine("These are the directions to go.");
         Compass(currentPos);
+        while(true)
+        {
+            string input = Console.ReadLine();
+            if(input == "N" || input =="S" || input =="E" || input =="W")
+            {
+                locations(input, currentPos);
+            }
+        }
+
+        //Console.WriteLine($"Moving to {NewLocation}"); 
     }
 
     public void Compass(string Location)
@@ -90,6 +102,20 @@ W--+--E
         if(Location == "Spider Forest")
         {
             Console.WriteLine(West);
+        }
+    }
+
+    public void locations(string diraction, string location)
+    {
+        switch(location)
+        {
+            case "Your House":
+                if(diraction != "N")
+                {
+                    Console.WriteLine("That is not a valid diraction.");
+                }
+                break;
+
         }
     }
 }
