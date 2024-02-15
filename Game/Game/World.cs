@@ -2,43 +2,6 @@ using System.Diagnostics.Contracts;
 
 class World
 {   
-    public void Locations()
-    {
-        IDictionary<char, string> YourHouse = new Dictionary<char, string>();
-        YourHouse.Add('N',"Town Square");
-
-        IDictionary<char, string> TownSquare = new Dictionary<char, string>();
-        TownSquare.Add('N',"Alchemist's Hut");
-        TownSquare.Add('E',"Guard Post");
-        TownSquare.Add('S',"Your Hous");
-        TownSquare.Add('W',"Farmer");
-
-        IDictionary<char, string> Farmer = new Dictionary<char, string>();
-        Farmer.Add('E',"Town Square");
-        Farmer.Add('W',"Farmer's Field");
-
-        IDictionary<char, string> FarmerFields = new Dictionary<char, string>();
-        FarmerFields.Add('E',"Farmer");
-
-        IDictionary<char, string> AlchemistHut = new Dictionary<char, string>();
-        AlchemistHut.Add('N',"Alchemist's Garden");
-        AlchemistHut.Add('S',"Town Square");
-
-        IDictionary<char, string> AlchemistGarden = new Dictionary<char, string>();
-        AlchemistGarden.Add('S',"Alchemist's Hut");
-
-        IDictionary<char, string> GuardPost = new Dictionary<char, string>();
-        GuardPost.Add('W',"Town Square");
-        GuardPost.Add('E',"Bridge");
-
-        IDictionary<char, string> Bridge = new Dictionary<char, string>();
-        Bridge.Add('E',"Spider Forest");
-        Bridge.Add('W',"Guard Post");
-
-        IDictionary<char, string> SpiderForest = new Dictionary<char, string>();
-        SpiderForest.Add('W',"Bridge");
-    }
-
     public void Text_Display(string text)
     {
         string[] lines = text.Split('\n');
