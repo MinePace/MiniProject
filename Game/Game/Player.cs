@@ -1,3 +1,5 @@
+using System.Globalization;
+
 public class Player
 {   
     // Properties
@@ -114,21 +116,77 @@ public class Player
     Console.WriteLine("\n");
     }
 
-    public void ExitGame()
+    public void Compass()
     {
-        Environment.Exit(0);
+        string North = @"N
+|
+/
+        ";
+
+        string South = @"/
+|
+S
+";
+
+        string East = @"/--E";
+
+        string West = @"W--/";
+
+        string NorthSouth = @"N
+|       
+/
+|
+S
+";
+
+        string EastWest = @"W--/--E";
+
+        string Centre = @"   N
+   |
+W--+--E
+   |
+   S        
+";
+
+
+        if(Location == "Your House")
+        {
+            Console.WriteLine(North);
+        }
+        if(Location == "Town Square")
+        {
+            Console.WriteLine(Centre);
+        }
+        if(Location == "Farmer")
+        {
+            Console.WriteLine(EastWest);
+        }
+        if(Location == "Farmer's Fields")
+        {
+            Console.WriteLine(East);
+        }
+        if(Location == "Alchemist’s Hut")
+        {
+            Console.WriteLine(NorthSouth);
+        }
+        if(Location == "Alchemist’s Garden")
+        {
+            Console.WriteLine(South);
+        }
+        if(Location == "Guard Post")
+        {
+            Console.WriteLine(EastWest);
+        }
+        if(Location == "Bridge")
+        {
+            Console.WriteLine(EastWest);
+        }
+        if(Location == "Spider Forest")
+        {
+            Console.WriteLine(West);
+        }
+        Console.WriteLine(Location);
     }
 
-    public bool OpenOptions()
-    {
-        while(true)
-        {
-            Console.WriteLine("(1) Switch weapon\n(2) Open inventory\n(3) Exit game (all progress lost)\n(4) Exit options");
-            string choice = Console.ReadLine();
-            if (choice == "1"){ChangeWeapon();}
-            if (choice == "2"){OpenInventory();}
-            if (choice == "3"){ExitGame();}
-            if (choice == "4"){return false;}
-        }
-    }
+    
 }
