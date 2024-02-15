@@ -14,9 +14,13 @@ public class Program
         Potion SmallHealthPotion = new Potion("Small Health Potion", "Potion that heals for 50HP", 50, 0);
         Potion BigHealthPotion = new Potion("Big Health Potion", "Potion that heals for 100HP ", 100, 0);
 
+        // instancing MobDrops
+        MonsterDrop RottenFlesh = new MonsterDrop("Rotten flesh", "Flesh of a dead zombie", 0);
+        MonsterDrop GoblinTeeth = new MonsterDrop("Goblin teeth", "Teeth of a goblin", 0);
+
         // instancing Monsters
-        Monster Goblin = new Monster(100, 100, 1, Spear, "Goblin");
-        Monster Zombie = new Monster(100, 100, 1, BroadSword, "Zombie");
+        Monster Goblin = new Monster(100, 100, 1, Spear, "Goblin", GoblinTeeth, 0.80);
+        Monster Zombie = new Monster(100, 100, 1, BroadSword, "Zombie", RottenFlesh, 0.70);
          
         // instancing player
         Player Player1 = new Player(100, "Starter area", Katana, "Jef", SmallHealthPotion, BigHealthPotion);
