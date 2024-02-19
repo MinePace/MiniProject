@@ -38,7 +38,7 @@ It is adorned with intricate runes that writhe and twist with dark power, emanat
         Monster Goblin = new Monster(100, 100, 1, Goblindagger, "Goblin", GoblinTeeth, 0.80);
         Monster Zombie = new Monster(100, 100, 2, Zombiesword, "Zombie", RottenFlesh, 0.70);
         Monster Spider = new Monster(100, 100, 3, Spiderfangs, "Spider", Spidereye, 0.30);
-        Monster Azazel = new Monster(2000, 2000, 666, BladeofDesolation, "Azazel", BladeofDesolation_item, 1);
+        Monster Azazel1 = new Monster(2000, 2000, 666, BladeofDesolation, "Azazel", BladeofDesolation_item, 1);
 
 
         // instancing player
@@ -48,6 +48,9 @@ It is adorned with intricate runes that writhe and twist with dark power, emanat
 
         //random bog
         SuperAdventure MainBattle = new SuperAdventure(Goblin, Player1);
+
+        //instance shop
+        Shop WeaponMaster = new Shop("Weapon master's shop");
 
         // adding stuff to inventory
         Player1.WeaponsInventory.Add(OldRustySword);
@@ -108,11 +111,11 @@ knowing your fate is entwined with theirs.",
         Npc Unknown = new Npc("???", "???",4, echoesOfObligationQuest);
         Npc Azazel = new Npc("Azazel the Fallen Overlord", "", 5, Thefallenoverlord);
 
+        Player1.Balance += 1000;
+        WeaponMaster.OpenShop(Player1);
         Player1.ChangeWeapon();
-        while(Player1.PlayerLevel == 1)
-        {
-            MainBattle.FightMonster();
-        }
+        MainBattle.FightMonster();
+        
 
 
         

@@ -26,6 +26,7 @@
                   Console.WriteLine("You won the battle");
                   ThePlayer.DropMonsterItem(CurrentMonster);
                   ThePlayer.LevelUp();
+                  ThePlayer.Balance += 25;
                   CurrentMonster.HP = CurrentMonster.MaxHP;
                   return false;
                }
