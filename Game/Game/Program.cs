@@ -5,6 +5,8 @@ public class Program
 {
     public static void Main()
     {
+        var w = new World();
+
         // instancing weapons for monster
         Weapon Goblindagger = new Weapon(1, 30, "Goblin Dagger", 2, 0.2);
         Weapon Zombiesword = new Weapon(2, 20, "Zombie sword", 2, 0.2);
@@ -32,7 +34,7 @@ public class Program
         // instancing player
         Console.WriteLine("What is your name?:");
         string playername = Console.ReadLine();
-        Player Player1 = new Player(100, "Starter area", Katana, playername , SmallHealthPotion, BigHealthPotion);
+        Player Player1 = new Player(100, "Your House", Katana, playername , SmallHealthPotion, BigHealthPotion);
 
         //random bog
         SuperAdventure MainBattle = new SuperAdventure(Goblin, Player1);
@@ -95,16 +97,24 @@ knowing your fate is entwined with theirs.",
         Npc Unknown = new Npc("???", "???",4, echoesOfObligationQuest);
         Npc Azazel = new Npc("Azazel the Fallen Overlord", "", 5, Thefallenoverlord);
 
-        MainBattle.FightMonster();
-        Player1.HP = Player1.Max_hp;
-        Player1.OpenInventory();
-        MainBattle.FightMonster();
-        Player1.OpenInventory();
-        Player1.HP = Player1.Max_hp;
-        MainBattle.FightMonster();
-        Player1.OpenInventory();
+        // MainBattle.FightMonster();
+        // Player1.HP = Player1.Max_hp;
+        // Player1.OpenInventory();
+        // MainBattle.FightMonster();
+        // Player1.OpenInventory();
+        // Player1.HP = Player1.Max_hp;
+        // MainBattle.FightMonster();
+        // Player1.OpenInventory();
 
-
-    
+        while(true)
+        {
+            Player1.Location = w.MovePlayer(Player1.Location);
+            
+            if(Player1.Location == "Farmer")
+                {
+                    w.Text_Display(fieldFrenzyQuest.Description);
+                }
+        }
+            
     }
 }
