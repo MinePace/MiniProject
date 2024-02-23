@@ -114,7 +114,7 @@ class World
                     }
                 }
 
-                else if(currentPos == "Famer")
+                else if(currentPos == "Farmer")
                 {
                     switch(input)
                     {
@@ -262,15 +262,15 @@ W--+--E
         {
             Console.WriteLine(EastWest);
         }
-        if(Location == "Farmer's Fields")
+        if(Location == "Farmer's Field")
         {
             Console.WriteLine(East);
         }
-        if(Location == "Alchemist’s Hut")
+        if(Location == "Alchemist's Hut")
         {
             Console.WriteLine(NorthSouth);
         }
-        if(Location == "Alchemist’s Garden")
+        if(Location == "Alchemist's Garden")
         {
             Console.WriteLine(South);
         }
