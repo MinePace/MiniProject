@@ -20,8 +20,8 @@ class World
     public string MovePlayer(string currentPos)
     {
         string NewLocation = currentPos;
-        Console.WriteLine("Where do you want to go?");
-        Console.WriteLine("These are the directions to go to.");
+        Text_Display("Where do you want to go?");
+        Text_Display("These are the directions to go to.");
         Compass(currentPos);
 
         bool check = true;
