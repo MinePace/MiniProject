@@ -4,6 +4,7 @@ public class Quest
     public string Description { get; set; }
     public string QuestName { get; set; }
     public int QuestId { get; set; }
+    public bool IsComplete = false;
 
     // Constructor
     public Quest(string description, string questName, int questId)
