@@ -287,22 +287,4 @@ W--+--E
             Console.WriteLine(West);
         }
     }
-
-    public bool locations(string direction, string location)
-    {
-        switch(location)
-        {
-            case "Your House":
-                if(direction == "N")
-                {
-                    return true;
-                }
-                break;
-
-        }
-        Console.WriteLine("That is not a valid direction.");
-        return false;
-    }
 }
-
- // test
