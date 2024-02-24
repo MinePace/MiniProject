@@ -19,6 +19,7 @@ public class Program
         Weapon BroadSword = new Weapon(103, 40, "Iron BroadSword", 1, 0);
         Weapon FarmersScythe = new Weapon(104, 35, "Harvestbane", 2, 0.3);
         Weapon BladeofDesolation = new Weapon(666, 100, "Blade of Desolation",3, 0.5); 
+        Weapon Snakefangs = new Weapon(4, 30, "Snake fangs", 2, 0.4);
         
         Weapon TESTING_PURPOSES = new Weapon(999, 100, "TEST SWORD", 4, 1);
 
@@ -33,12 +34,14 @@ public class Program
         MonsterDrop BladeofDesolation_item = new MonsterDrop("Blade of Desolation", @"The Blade of Desolation is a massive two-handed sword, 
 its blade as black as the void itself and pulsating with malevolent energy.
 It is adorned with intricate runes that writhe and twist with dark power, emanating an aura of dread to all who dare to gaze upon it.",1);
+MonsterDrop SnakeScales = new MonsterDrop("Snake scales", "Scales of a snake", 1);
 
         // instancing Monsters
         Monster Goblin = new Monster(100, 100, 1, Goblindagger, "Goblin", GoblinTeeth, 0.80);
         Monster Zombie = new Monster(100, 100, 2, Zombiesword, "Zombie", RottenFlesh, 0.70);
         Monster Spider = new Monster(100, 100, 3, Spiderfangs, "Spider", Spidereye, 0.30);
         Monster Azazel1 = new Monster(2000, 2000, 666, BladeofDesolation, "Azazel", BladeofDesolation_item, 1);
+        Monster Snake = new Monster(120, 100, 4, Snakefangs, "Snake", SnakeScales, 0.30);
 
 
         // instancing player
@@ -63,13 +66,9 @@ It is adorned with intricate runes that writhe and twist with dark power, emanat
 
         // instancing Quests
         Quest fieldFrenzyQuest = new Quest(
-            @"Farmer Joe approaches you with a solemn expression, 
-explaining his urgent need for help in collecting grain to make bread. 
-He warns you of the lurking danger posed by monstrous creatures that 
-have been spotted in the fields. Undeterred by the threat, you accept Farmer Joe's plea for aid,
-understanding the importance of ensuring the village's food supply. 
-Armed with determination and a sense of duty, you set out into the fields, 
-ready to face whatever challenges may arise. ",
+            @"Farmer Jones, a local farmer, is facing a dire situation with an unexpected snake infestation on his farm.
+            The snakes have disrupted daily operations, causing distress among the livestock and posing a threat to the crops.
+            Your task is to exterminate the snakes",
             "Field frenzy",
             1); 
         Quest MinersMercyQuest = new Quest(
@@ -111,13 +110,108 @@ knowing your fate is entwined with theirs.",
         Npc Unknown = new Npc("???", "???",4, echoesOfObligationQuest);
         Npc Azazel = new Npc("Azazel the Fallen Overlord", "", 5, Thefallenoverlord);
 
+        
+        
+        
+          //Start of farmer location code
+            Player1.Location = "Farmer"; //placeholder to test the loop
+            while (Player1.Location == "Farmer")
+            {
+                Console.WriteLine($"Current location: {Player1.Location}");
+                Console.WriteLine("What would you like to do (Enter a number)?");
+                Console.WriteLine("1: Change weapons");
+                Console.WriteLine("2: Speak with Farmer Joe");
+                Console.WriteLine("3: Move");
+                Console.WriteLine("4: Quit");
+                int UserInput = Convert.ToInt32(Console.ReadLine());
+                if (UserInput == 1)
+                {
+                    Player1.ChangeWeapon();
+                }
+                else if (UserInput == 2)
+                {
+                    Console.WriteLine("Howdy! \nSnakes are wreaking havoc on my farm. Can you help? ");
+                    Console.WriteLine("1: Accept quest ");
+                    Console.WriteLine("2: Refuse quest");
+                    if (fieldFrenzyQuest.IsComplete == true)      //if quest completed show extra dialogue
+                        Console.WriteLine("3: Hand in the quest");
+
+                    int AnswerToJoe = Convert.ToInt32(Console.ReadLine());
+                    if (AnswerToJoe == 1)
+                    {
+                        Console.WriteLine("You accepted the quest");
+                    }
+                    else if (AnswerToJoe == 2)
+                    {
+                        Console.WriteLine("You have refused the quest");
+                    }
+                    else if (AnswerToJoe == 3 && fieldFrenzyQuest.IsComplete == true)
+                    {
+                        Console.WriteLine("You have completed the quest");
+                        //add rewards and exp gained here
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input.");
+                    }
+                }
+                else if (UserInput == 3)
+                {
+                    //place function to MOVE here
+                    Player1.Location = "Farmer's Field"; //placeholder to test next location
+                }
+                else if (UserInput == 4)
+                {
+                    //place function to QUIT here
+                    ;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input. Please enter a number between 1 and 4.");
+                }
+            }
+            
+            //Start of farmer's field location code
+            while (Player1.Location == "Farmer's Field")
+            {
+                Console.WriteLine($"Current location: {Player1.Location}");
+                Console.WriteLine("What would you like to do (Enter a number)?");
+                Console.WriteLine("1: Change weapons");
+                Console.WriteLine("2: Hunt snakes");
+                Console.WriteLine("3: Move");
+                Console.WriteLine("4: Quit");
+                int UserInput = Convert.ToInt32(Console.ReadLine());
+                if (UserInput == 1)
+                {
+                    Player1.ChangeWeapon();
+                }
+                if (UserInput == 2)
+                {
+                    //place function fight here
+            
+                    fieldFrenzyQuest.IsComplete = true; //after fighting snakes mark quest as completed
+                    ;
+                }
+                if (UserInput == 3)
+                {
+                    //place function to MOVE here
+                    ;
+                }
+                if (UserInput == 4)
+                {
+                    //place function to QUIT here
+                    ;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input. Please enter a number between 1 and 4.");
+                }
+            }     
+        
+        
         Player1.Balance += 1000;
         WeaponMaster.OpenShop(Player1);
         Player1.ChangeWeapon();
-        MainBattle.FightMonster();
-        
-
-
-        
+        MainBattle.FightMonster();     
     }
 }
