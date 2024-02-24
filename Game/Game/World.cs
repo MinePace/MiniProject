@@ -20,8 +20,8 @@ class World
     public string MovePlayer(string currentPos)
     {
         string NewLocation = currentPos;
-        Console.WriteLine("Where do you want to go?");
-        Console.WriteLine("These are the directions to go to.");
+        Text_Display("Where do you want to go?");
+        Text_Display("These are the directions to go to.");
         Compass(currentPos);
 
         bool check = true;
@@ -114,7 +114,7 @@ class World
                     }
                 }
 
-                else if(currentPos == "Famer")
+                else if(currentPos == "Farmer")
                 {
                     switch(input)
                     {
@@ -262,15 +262,15 @@ W--+--E
         {
             Console.WriteLine(EastWest);
         }
-        if(Location == "Farmer's Fields")
+        if(Location == "Farmer's Field")
         {
             Console.WriteLine(East);
         }
-        if(Location == "Alchemist’s Hut")
+        if(Location == "Alchemist's Hut")
         {
             Console.WriteLine(NorthSouth);
         }
-        if(Location == "Alchemist’s Garden")
+        if(Location == "Alchemist's Garden")
         {
             Console.WriteLine(South);
         }
@@ -287,22 +287,4 @@ W--+--E
             Console.WriteLine(West);
         }
     }
-
-    public bool locations(string direction, string location)
-    {
-        switch(location)
-        {
-            case "Your House":
-                if(direction == "N")
-                {
-                    return true;
-                }
-                break;
-
-        }
-        Console.WriteLine("That is not a valid direction.");
-        return false;
-    }
 }
-
- // test
