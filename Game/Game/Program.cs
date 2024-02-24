@@ -1,17 +1,21 @@
-﻿using System;
+
+using System;
 using System.Threading;
 
 public class Program
 {
     public static void Main()
     {
+        var w = new World();
         // Window title
+        
         Console.Title = "Game"; 
 
         // instancing weapons for monster
         Weapon Goblindagger = new Weapon(1, 30, "Goblin Dagger", 2, 0.2);
         Weapon Zombiesword = new Weapon(2, 20, "Zombie sword", 2, 0.2);
         Weapon Spiderfangs = new Weapon(3, 40, "Spider fangs", 2, 0.2);
+        Weapon Snakefangs = new Weapon(4, 15, "Snake fangs", 1.5, 0.1);
 
         // instancing weapons
         Weapon Spear = new Weapon(101, 30, "Dark Spear", 2, 0.2);
@@ -19,7 +23,7 @@ public class Program
         Weapon BroadSword = new Weapon(103, 40, "Iron BroadSword", 1, 0);
         Weapon FarmersScythe = new Weapon(104, 35, "Harvestbane", 2, 0.3);
         Weapon BladeofDesolation = new Weapon(666, 100, "Blade of Desolation",3, 0.5); 
-        Weapon Snakefangs = new Weapon(4, 30, "Snake fangs", 2, 0.4);
+
         
         Weapon TESTING_PURPOSES = new Weapon(999, 100, "TEST SWORD", 4, 1);
 
@@ -47,10 +51,13 @@ MonsterDrop SnakeScales = new MonsterDrop("Snake scales", "Scales of a snake", 1
         // instancing player
         Console.WriteLine("What is your name?:");
         string playername = Console.ReadLine();
-        Player Player1 = new Player(100, "Starter area", OldRustySword, playername , SmallHealthPotion, BigHealthPotion);
+        Player Player1 = new Player(100, "Your House", OldRustySword, playername , SmallHealthPotion, BigHealthPotion);
 
         //random bog
         SuperAdventure MainBattle = new SuperAdventure(Goblin, Player1);
+        SuperAdventure Snakeinfields = new SuperAdventure(Snake, Player1);
+
+
 
         //instance shop
         Shop WeaponMaster = new Shop("Weapon master's shop");
@@ -110,108 +117,68 @@ knowing your fate is entwined with theirs.",
         Npc Unknown = new Npc("???", "???",4, echoesOfObligationQuest);
         Npc Azazel = new Npc("Azazel the Fallen Overlord", "", 5, Thefallenoverlord);
 
-        
-        
-        
-          //Start of farmer location code
-            Player1.Location = "Farmer"; //placeholder to test the loop
-            while (Player1.Location == "Farmer")
-            {
-                Console.WriteLine($"Current location: {Player1.Location}");
-                Console.WriteLine("What would you like to do (Enter a number)?");
-                Console.WriteLine("1: Change weapons");
-                Console.WriteLine("2: Speak with Farmer Joe");
-                Console.WriteLine("3: Move");
-                Console.WriteLine("4: Quit");
-                int UserInput = Convert.ToInt32(Console.ReadLine());
-                if (UserInput == 1)
-                {
-                    Player1.ChangeWeapon();
-                }
-                else if (UserInput == 2)
-                {
-                    Console.WriteLine("Howdy! \nSnakes are wreaking havoc on my farm. Can you help? ");
-                    Console.WriteLine("1: Accept quest ");
-                    Console.WriteLine("2: Refuse quest");
-                    if (fieldFrenzyQuest.IsComplete == true)      //if quest completed show extra dialogue
-                        Console.WriteLine("3: Hand in the quest");
+        // variable for quest tasks
+        int snake_kills = 0;
 
-                    int AnswerToJoe = Convert.ToInt32(Console.ReadLine());
-                    if (AnswerToJoe == 1)
-                    {
-                        Console.WriteLine("You accepted the quest");
-                    }
-                    else if (AnswerToJoe == 2)
-                    {
-                        Console.WriteLine("You have refused the quest");
-                    }
-                    else if (AnswerToJoe == 3 && fieldFrenzyQuest.IsComplete == true)
-                    {
-                        Console.WriteLine("You have completed the quest");
-                        //add rewards and exp gained here
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid input.");
-                    }
-                }
-                else if (UserInput == 3)
-                {
-                    //place function to MOVE here
-                    Player1.Location = "Farmer's Field"; //placeholder to test next location
-                }
-                else if (UserInput == 4)
-                {
-                    //place function to QUIT here
-                    ;
-                }
-                else
-                {
-                    Console.WriteLine("Invalid input. Please enter a number between 1 and 4.");
-                }
-            }
+        //MainBattle.FightMonster();
+        // Player1.HP = Player1.Max_hp;
+        // Player1.OpenInventory();
+        // MainBattle.FightMonster();
+        // Player1.OpenInventory();
+        // Player1.HP = Player1.Max_hp;
+        // MainBattle.FightMonster();
+        // Player1.OpenInventory();
+        while(true)
+        {
+            Player1.Location = w.MovePlayer(Player1.Location);
             
-            //Start of farmer's field location code
-            while (Player1.Location == "Farmer's Field")
+            if(Player1.Location == "Farmer")
             {
-                Console.WriteLine($"Current location: {Player1.Location}");
-                Console.WriteLine("What would you like to do (Enter a number)?");
-                Console.WriteLine("1: Change weapons");
-                Console.WriteLine("2: Hunt snakes");
-                Console.WriteLine("3: Move");
-                Console.WriteLine("4: Quit");
-                int UserInput = Convert.ToInt32(Console.ReadLine());
-                if (UserInput == 1)
+                    Farmer_joe.InteractWithNPC();
+
+                    // Code to when completing the quest
+            }
+            if (Player1.Location == "Farmer's Field" && Farmer_joe.Quest.isAccepted == true)
+            {   
+                w.Text_Display("The task of the quest is to kill 3 Snakes");
+
+                while (snake_kills != 3)
                 {
-                    Player1.ChangeWeapon();
+                    Console.WriteLine("You have 2 options:");
+                    Console.WriteLine("1. Fight Snakes");
+                    Console.WriteLine("2. Leave");
+                    string Farmerfields = Console.ReadLine();
+
+                    if (Farmerfields == "1")
+                    {
+                        //battle snake
+                        Snakeinfields.FightMonster();
+                        snake_kills += 1;
+                        Console.WriteLine($"killed {snake_kills}/3");
+                    }
+                    if (Farmerfields == "2")
+                    {
+                        break;
+                    }
+                    
                 }
-                if (UserInput == 2)
-                {
-                    //place function fight here
-            
-                    fieldFrenzyQuest.IsComplete = true; //after fighting snakes mark quest as completed
-                    ;
-                }
-                if (UserInput == 3)
-                {
-                    //place function to MOVE here
-                    ;
-                }
-                if (UserInput == 4)
-                {
-                    //place function to QUIT here
-                    ;
-                }
-                else
-                {
-                    Console.WriteLine("Invalid input. Please enter a number between 1 and 4.");
-                }
-            }     
+            if (snake_kills == 3)
+                    {
+                        Farmer_joe.Quest.isTaskCompelete = true;
+                    }
+
+            }
+        }
         
         
-        Player1.Balance += 1000;
-        WeaponMaster.OpenShop(Player1);
-        Player1.ChangeWeapon();
-        MainBattle.FightMonster();     
+        //Player1.Balance += 1000;
+        //WeaponMaster.OpenShop(Player1);
+        //Player1.ChangeWeapon();
+        //MainBattle.FightMonster();
+        
+
+
+        
+        //MainBattle.FightMonster();     
     }
 }

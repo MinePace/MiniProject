@@ -5,6 +5,8 @@ public class Quest
     public string QuestName { get; set; }
     public int QuestId { get; set; }
     public bool IsComplete = false;
+    public bool isAccepted = false;
+    public bool isTaskCompelete = false;
 
     // Constructor
     public Quest(string description, string questName, int questId)
