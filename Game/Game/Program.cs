@@ -16,6 +16,7 @@ public class Program
         Weapon Zombiesword = new Weapon(2, 20, "Zombie sword", 2, 0.2);
         Weapon Spiderfangs = new Weapon(3, 40, "Spider fangs", 2, 0.2);
         Weapon Snakefangs = new Weapon(4, 15, "Snake fangs", 1.5, 0.1);
+        Weapon Ratteeth = new Weapon(5, 15, "Rat teeth", 1.5, 0.15);
 
         // instancing weapons
         Weapon Spear = new Weapon(101, 30, "Dark Spear", 2, 0.2);
@@ -38,14 +39,16 @@ public class Program
         MonsterDrop BladeofDesolation_item = new MonsterDrop("Blade of Desolation", @"The Blade of Desolation is a massive two-handed sword, 
 its blade as black as the void itself and pulsating with malevolent energy.
 It is adorned with intricate runes that writhe and twist with dark power, emanating an aura of dread to all who dare to gaze upon it.",1);
-MonsterDrop SnakeScales = new MonsterDrop("Snake scales", "Scales of a snake", 1);
+        MonsterDrop SnakeScales = new MonsterDrop("Snake scales", "Scales of a snake", 1);
+        MonsterDrop RatTail = new MonsterDrop("Rat tail", "Tail from a rat", 1);
 
         // instancing Monsters
         Monster Goblin = new Monster(100, 100, 1, Goblindagger, "Goblin", GoblinTeeth, 0.80);
         Monster Zombie = new Monster(100, 100, 2, Zombiesword, "Zombie", RottenFlesh, 0.70);
         Monster Spider = new Monster(100, 100, 3, Spiderfangs, "Spider", Spidereye, 0.30);
         Monster Azazel1 = new Monster(2000, 2000, 666, BladeofDesolation, "Azazel", BladeofDesolation_item, 1);
-        Monster Snake = new Monster(120, 100, 4, Snakefangs, "Snake", SnakeScales, 0.30);
+        Monster Snake = new Monster(100, 100, 4, Snakefangs, "Snake", SnakeScales, 0.30);
+        Monster Rat = new Monster(100, 100, 5, Ratteeth, "Rat", RatTail, 0.50);
 
 
         // instancing player
@@ -56,7 +59,7 @@ MonsterDrop SnakeScales = new MonsterDrop("Snake scales", "Scales of a snake", 1
         //random bog
         SuperAdventure MainBattle = new SuperAdventure(Goblin, Player1);
         SuperAdventure Snakeinfields = new SuperAdventure(Snake, Player1);
-
+        SuperAdventure Ratingarden = new SuperAdventure(Rat, Player1);
 
 
         //instance shop
@@ -78,14 +81,11 @@ MonsterDrop SnakeScales = new MonsterDrop("Snake scales", "Scales of a snake", 1
             Your task is to exterminate the snakes",
             "Field frenzy",
             1); 
-        Quest MinersMercyQuest = new Quest(
-            @"The Miner of the town rushes towards you in distress, his face lined with worry. He explains that his friend, a fellow miner 
-has been viciously attacked by monsters deep within the caverns and is in desperate need of rescue. Without hesitation, you heed the miner's plea for help, 
-understanding the urgency of the situation. Equipping yourself with the necessary gear, you venture into the dark depths of the mines, 
-the echoes of your footsteps mingling with the distant rumble of unseen dangers. Navigating through the labyrinthine tunnels, 
-you press forward with determination, guided by the flickering light of your torch. The air grows heavy with each step,
-and the oppressive silence is broken only by the occasional drip of water echoing in the darkness.",
-            "Miner's Mercy",
+        Quest gardenMenaceQuest = new Quest(
+            @"Alchemist Isaac's garden has been overrun by an unusually aggressive breed of rats. 
+            The rodents, drawn by the potent scents of alchemical ingredients, pose a threat to the garden's flora. 
+            Isaac seeks brave adventurers to eliminate the rat infestation and restore peace to his sanctuary of alchemy.",
+            "Rat Troubles",
             2);
         Quest radiantResonanceQuest = new Quest(
             @"Under the silvery veil of the moonlit forest, a glimmer catches your eye—a hidden shrine, pulsating with an enigmatic energy. 
@@ -112,13 +112,14 @@ knowing your fate is entwined with theirs.",
 
         // instancing Npc
         Npc Farmer_joe = new Npc("Farmer Joe", "Im a farmer", 1, fieldFrenzyQuest);
-        Npc Miner_dig = new Npc("Miner Dig", "Im a miner", 2, MinersMercyQuest);
+        Npc Alchemist_Isaac = new Npc("Alchemist Isaac", "Im a alchemist", 2, gardenMenaceQuest);
         Npc Voices = new Npc("The Voices", "", 3, radiantResonanceQuest);
         Npc Unknown = new Npc("???", "???",4, echoesOfObligationQuest);
         Npc Azazel = new Npc("Azazel the Fallen Overlord", "", 5, Thefallenoverlord);
 
         // variable for quest tasks
         int snake_kills = 0;
+        int rat_kills = 0;
 
         //MainBattle.FightMonster();
         // Player1.HP = Player1.Max_hp;
@@ -165,6 +166,43 @@ knowing your fate is entwined with theirs.",
             if (snake_kills == 3)
                     {
                         Farmer_joe.Quest.isTaskCompelete = true;
+                    }
+
+            }
+            //alchemist hut & alchemist garden
+            if(Player1.Location == "Alchemist's Hut")
+            {
+                    Alchemist_Isaac.InteractWithNPC();
+
+                    // Code to when completing the quest
+            }
+            if (Player1.Location == "Alchemist's Garden" && Alchemist_Isaac.Quest.isAccepted == true)
+            {   
+                w.Text_Display("The task of the quest is to kill 3 rats");
+
+                while (rat_kills != 3)
+                {
+                    Console.WriteLine("You have 2 options:");
+                    Console.WriteLine("1. Fight Rats");
+                    Console.WriteLine("2. Leave");
+                    string Alchemistgarden = Console.ReadLine();
+
+                    if (Alchemistgarden == "1")
+                    {
+                        //battle rat
+                        Ratingarden.FightMonster();
+                        rat_kills += 1;
+                        Console.WriteLine($"killed {rat_kills}/3");
+                    }
+                    if (Alchemistgarden == "2")
+                    {
+                        break;
+                    }
+                    
+                }
+            if (rat_kills == 3)
+                    {
+                        Alchemist_Isaac.Quest.isTaskCompelete = true;
                     }
 
             }
