@@ -17,18 +17,19 @@ class World
         }
     }
 
-    public string MovePlayer(string currentPos)
+    public string MovePlayer(string currentPos, Player player)
     {
         string NewLocation = currentPos;
         Text_Display("Where do you want to go?");
         Text_Display("These are the directions to go to.");
         Compass(currentPos);
+        Text_Display("Press 'O' for Options");
 
         bool check = true;
         while(check)
         {
-            string input = Console.ReadLine();
-            if(input == "N" || input =="S" || input =="E" || input =="W")
+            string input = Console.ReadLine().ToUpper();
+            if(input == "N" || input =="S" || input =="E" || input =="W" || input =="O")
             {
                 if (currentPos == "Your House")
                 {
@@ -47,6 +48,11 @@ class World
                         case "S":
                             NewLocation = "Knights Castle";
                             check = false;
+                            break;
+                        
+                        case "O":
+                            player.OpenOptions();
+                            Compass(currentPos);
                             break;
 
                         default:
@@ -80,6 +86,11 @@ class World
                             check = false;
                             break;
 
+                        case "O":
+                            player.OpenOptions();
+                            Compass(currentPos);                            
+                            break;
+                        
                         default:
                             Text_Display("That is not a valid input.");
                             break;
@@ -101,6 +112,11 @@ class World
                             check = false;
                             break;
 
+                        case "O":
+                            player.OpenOptions();
+                            Compass(currentPos);                            
+                            break;
+
                         default:
                             Text_Display("That is not a valid input.");
                             break;                    
@@ -115,6 +131,11 @@ class World
                         case "S":
                             NewLocation = "Alchemist's Hut";
                             check = false;
+                            break;
+
+                        case "O":
+                            player.OpenOptions();
+                            Compass(currentPos);                            
                             break;
 
                         default:
@@ -138,6 +159,11 @@ class World
                             check = false;
                             break;
 
+                        case "O":
+                            player.OpenOptions();
+                            Compass(currentPos);                            
+                            break;
+
                         default:
                             Text_Display("That is not a valid input.");
                             break;                    
@@ -152,6 +178,11 @@ class World
                         case "E":
                             NewLocation = "Farmer";
                             check = false;
+                            break;
+
+                        case "O":
+                            player.OpenOptions();
+                            Compass(currentPos);                            
                             break;
 
                         default:
@@ -179,6 +210,11 @@ class World
                             check = false;
                             break;
 
+                        case "O":
+                            player.OpenOptions();
+                            Compass(currentPos);                            
+                            break;
+
                         default:
                             Text_Display("That is not a valid input.");
                             break;                 
@@ -200,6 +236,11 @@ class World
                             check = false;
                             break;
 
+                        case "O":
+                            player.OpenOptions();
+                            Compass(currentPos);                            
+                            break;
+
                         default:
                             Text_Display("That is not a valid input.");
                             break;
@@ -214,6 +255,11 @@ class World
                         case "W":
                             NewLocation = "Bridge";
                             check = false;
+                            break;
+
+                        case "O":
+                            player.OpenOptions();
+                            Compass(currentPos);                            
                             break;
 
                         default:
@@ -236,6 +282,11 @@ class World
                             check = false;
                             break;
 
+                        case "O":
+                            player.OpenOptions();
+                            Compass(currentPos);                            
+                            break;
+
                         default:
                             Text_Display("That is not a valid input");
                             break;
@@ -248,6 +299,11 @@ class World
                         case "N":
                             NewLocation = "Your House";
                             check = false;
+                            break;
+
+                        case "O":
+                            player.OpenOptions();
+                            Compass(currentPos);                            
                             break;
 
                         default:
