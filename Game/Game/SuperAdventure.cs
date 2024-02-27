@@ -12,6 +12,7 @@
      public bool FightMonster()
      {
          Console.WriteLine($"\nFight started between {ThePlayer.Name} and {CurrentMonster.Name}.");
+         CurrentMonster.HP = CurrentMonster.MaxHP;
          while(true)
          {
             Console.WriteLine($"(1) Use {ThePlayer.Weapon.Name}\n(2) Use Potion");
@@ -77,5 +78,23 @@
                return false;
             }  
          }
+     }
+
+     public bool InfiniteMode()
+     {
+      Console.WriteLine("You are gonna fight Knights untill you lose the will get increasingly stronger");
+
+      while(true)
+      {
+         FightMonster();
+         if(ThePlayer.HP == 0)
+         {
+            ThePlayer.WipeOut();
+            return false;
+         }
+         CurrentMonster.MaxHP += 10;
+         CurrentMonster.Weapon.MaxDamage += 10;
+         ThePlayer.ChangeWeapon();
+      }
      }
 }

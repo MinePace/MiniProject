@@ -17,6 +17,7 @@ public class Program
         Weapon Spiderfangs = new Weapon(3, 40, "Spider fangs", 2, 0.2);
         Weapon Snakefangs = new Weapon(4, 15, "Snake fangs", 1.5, 0.1);
         Weapon Ratteeth = new Weapon(5, 15, "Rat teeth", 1.5, 0.15);
+        Weapon KnightSword = new Weapon(160, 40,"Knights Weapon", 2, 0.2);
 
         // instancing weapons
         Weapon Spear = new Weapon(101, 30, "Dark Spear", 2, 0.2);
@@ -24,6 +25,7 @@ public class Program
         Weapon BroadSword = new Weapon(103, 40, "Iron BroadSword", 1, 0);
         Weapon FarmersScythe = new Weapon(104, 35, "Harvestbane", 2, 0.3);
         Weapon BladeofDesolation = new Weapon(666, 100, "Blade of Desolation",3, 0.5); 
+
 
         
         Weapon TESTING_PURPOSES = new Weapon(999, 100, "TEST SWORD", 4, 1);
@@ -49,6 +51,7 @@ It is adorned with intricate runes that writhe and twist with dark power, emanat
         Monster Azazel1 = new Monster(2000, 2000, 666, BladeofDesolation, "Azazel", BladeofDesolation_item, 1);
         Monster Snake = new Monster(100, 100, 4, Snakefangs, "Snake", SnakeScales, 0.30);
         Monster Rat = new Monster(100, 100, 5, Ratteeth, "Rat", RatTail, 0.50);
+        Monster Knight = new Monster(100, 100, 5, KnightSword, "Knight", GoblinTeeth, 0);
 
 
         // instancing player
@@ -60,6 +63,7 @@ It is adorned with intricate runes that writhe and twist with dark power, emanat
         SuperAdventure MainBattle = new SuperAdventure(Goblin, Player1);
         SuperAdventure Snakeinfields = new SuperAdventure(Snake, Player1);
         SuperAdventure Ratingarden = new SuperAdventure(Rat, Player1);
+        SuperAdventure InfiniteMode = new SuperAdventure(Knight, Player1);
 
 
         //instance shop
@@ -129,6 +133,8 @@ knowing your fate is entwined with theirs.",
         // Player1.HP = Player1.Max_hp;
         // MainBattle.FightMonster();
         // Player1.OpenInventory();
+
+        InfiniteMode.InfiniteMode();
         while(true)
         {
             Player1.Location = w.MovePlayer(Player1.Location);
