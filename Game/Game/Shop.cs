@@ -1,3 +1,5 @@
+using Microsoft.VisualBasic;
+
 class Shop
 {
     public string Name;
@@ -76,8 +78,9 @@ class Shop
 
     public void BuyWeapon(Player player)
     {
-        if (player.Balance < 200){Console.WriteLine("Not enough gold saved up");}
-        if (WeaponStock.Count == 0){Console.WriteLine("Shop is empty");}
+        var w = new World();
+        if (player.Balance < 200){w.Text_Display("Not enough gold saved up");}
+        if (WeaponStock.Count == 0){w.Text_Display("Shop is empty");}
         else
         {
             player.Balance -= 200;
@@ -85,7 +88,7 @@ class Shop
 
             int randomIndex = random.Next(0, WeaponStock.Count - 1);
             Weapon new_weapon = WeaponStock[randomIndex];
-            Console.WriteLine($"You just bought a {new_weapon.Name}, Damage: {new_weapon.MaxDamage}, Crit DMG Multiplier: {new_weapon.CritDamage}, Crit Chance: {new_weapon.CritChance}");
+            w.Text_Display($"You just bought a {new_weapon.Name}, Damage: {new_weapon.MaxDamage}, Crit DMG Multiplier: {new_weapon.CritDamage}, Crit Chance: {new_weapon.CritChance}");
             WeaponStock.Remove(new_weapon);
             player.WeaponsInventory.Add(new_weapon);
         }
@@ -93,33 +96,34 @@ class Shop
 
     public void BuyPotions(Player player)
     {
-        Console.WriteLine("(1) buy small potion (25 gold)\n(2) buy large potion (100 gold)");
+        var w = new World();
+        w.Text_Display("(1) buy small potion (25 gold)\n(2) buy large potion (100 gold)");
         int pot_choice = int.Parse(Console.ReadLine());
 
         if(pot_choice == 1)
         {
-            Console.WriteLine("How many small potions to buy: ");
+            w.Text_Display("How many small potions to buy: ");
             int pot1_choice = int.Parse(Console.ReadLine());
             int price_1 = pot1_choice * 25;
-            if((player.Balance - pot1_choice) < 0){Console.WriteLine("Not enough balance");}
+            if((player.Balance - pot1_choice) < 0){w.Text_Display("Not enough balance");}
             else
             {
                 player.Balance -= price_1;
                 player.SmallPotionInventory.PotionQuantity += pot1_choice;
-                Console.WriteLine("Potions succesfully purchased");
+                w.Text_Display("Potions succesfully purchased");
             }
         }
         if(pot_choice == 2)
         {
-            Console.WriteLine("How many big potions to buy: ");
+            w.Text_Display("How many big potions to buy: ");
             int pot1_choice = int.Parse(Console.ReadLine());
             int price_1 = pot1_choice * 100;
-            if((player.Balance - pot1_choice) < 0){Console.WriteLine("Not enough balance");}
+            if((player.Balance - pot1_choice) < 0){w.Text_Display("Not enough balance");}
             else
             {
                 player.Balance -= price_1;
                 player.BigPotionInventory.PotionQuantity += pot1_choice;
-                Console.WriteLine("Potions succesfully purchased");
+                w.Text_Display("Potions succesfully purchased");
             }
         }
         else{Console.WriteLine("Wong input");}
@@ -129,7 +133,8 @@ class Shop
     {
         while (true)
         {
-            Console.WriteLine("Welcome to the shop where you can buy potions and weapons\n(1) Buy Weapon\n(2) Buy Potions\n(3) Exit Shop");
+            var w = new World();
+            w.Text_Display("Welcome to the shop where you can buy potions and weapons\n(1) Buy Weapon\n(2) Buy Potions\n(3) Exit Shop");
             int choice = int.Parse(Console.ReadLine());
 
             if (choice == 1)
@@ -142,12 +147,12 @@ class Shop
             }
             else if (choice == 3)
             {
-                Console.WriteLine("You left the shop");
+                w.Text_Display("You left the shop");
                 return false;
             }
             else
             {
-                Console.WriteLine("Invalid input. Please choose a valid option.");
+                w.Text_Display("Invalid input. Please choose a valid option.");
             }
         }
     }

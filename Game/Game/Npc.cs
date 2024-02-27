@@ -14,31 +14,32 @@ public class Npc
     }
     public void InteractWithNPC()
     {
+        var w = new World();
     // Check if the NPC has a quest
     if (Quest != null)
     {
         if (Quest.IsComplete)
         {
-            Console.WriteLine("This quest has already been completed.");
+            w.Text_Display("This quest has already been completed.");
         }
         else if (Quest.isTaskCompelete)
         {
-            Console.WriteLine("Completed the quest");
+            w.Text_Display("Completed the quest");
             Quest.IsComplete = true;
             Quest.isAccepted = false;
         }
 
         else if (Quest.isAccepted)
         {
-            Console.WriteLine("Finish the task first");
+            w.Text_Display("Finish the task first");
         }
         else
         {
-            Console.WriteLine($"Would you like to accept the quest '{Quest.QuestName}'? (Y/N)");
+            w.Text_Display($"Would you like to accept the quest '{Quest.QuestName}'? (Y/N)");
             string input = Console.ReadLine();
             if (input.ToLower() == "y")
             {
-                Console.WriteLine($"You've accepted the quest '{Quest.QuestName}'.");
+                w.Text_Display($"You've accepted the quest '{Quest.QuestName}'.");
                 // Add the quest to the player's quest log or whatever your game logic dictates
                 // For example:
                 // player.QuestLog.Add(Quest);
@@ -46,13 +47,13 @@ public class Npc
             }
             else
             {
-                Console.WriteLine("You decide not to accept the quest.");
+                w.Text_Display("You decide not to accept the quest.");
             }
         }
     }
     else
     {
-        Console.WriteLine("This NPC doesn't have any quests for you.");
+        w.Text_Display("This NPC doesn't have any quests for you.");
     }
 
     }
