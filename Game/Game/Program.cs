@@ -1,4 +1,4 @@
-
+﻿
 using System;
 using System.Threading;
 
@@ -137,7 +137,7 @@ knowing your fate is entwined with theirs.",
 
         while(true)
         {
-            Player1.Location = w.MovePlayer(Player1.Location);
+            Player1.Location = w.MovePlayer(Player1.Location, Player1);
             
             if(Player1.Location == "Farmer")
             {
@@ -233,7 +233,8 @@ knowing your fate is entwined with theirs.",
 
             if(Player1.Location == "Knights Castle")
             {
-                InfiniteMode.InfiniteMode();
+                if(fieldFrenzyQuest.isTaskCompelete == true && gardenMenaceQuest.isTaskCompelete == true){InfiniteMode.InfiniteMode();}
+                else{Console.WriteLine("Not enough quests completed to enter the Knights Castle");}
             }
         }
         
