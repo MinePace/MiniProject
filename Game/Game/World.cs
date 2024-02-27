@@ -39,6 +39,11 @@ class World
                             check = false;
                             break;
 
+                        case "E":
+                            NewLocation = "Weapon Master's Shop";
+                            check = false;
+                            break;
+
                         default:
                             Console.WriteLine("That is not a valid input.");
                             break;
@@ -164,6 +169,11 @@ class World
                             check = false;
                             break;
 
+                        case "S":
+                            NewLocation = "Weapon Master's Shop";
+                            check = false;
+                            break;
+
                         default:
                             Console.WriteLine("That is not a valid input.");
                             break;                 
@@ -207,6 +217,25 @@ class World
 
                     }
                 }
+                else if(currentPos == "Weapon Master's Shop")
+                {
+                    switch(input)
+                    {
+                        case "N":
+                            NewLocation = "Guard Post";
+                            check = false;
+                            break;
+
+                        case "W":
+                            NewLocation = "Your House";
+                            check = false;
+                            break;
+
+                        default:
+                            Console.WriteLine("That is not a valid input");
+                            break;
+                    }
+                }
             }
 
             else{Console.WriteLine("That is not a valid input.");}
@@ -233,6 +262,12 @@ S
 
         string West = @"W--/";
 
+        string NorthEast = @"
+N        
+|
++--E
+        ";
+
         string NorthSouth = @"N
 |       
 /
@@ -241,6 +276,17 @@ S
 ";
 
         string EastWest = @"W--/--E";
+
+        string NorthWest = @"
+   N
+   |
+W--+              
+        ";
+
+        string EastWestSouth = @"
+W--+--E
+   |
+   S";
 
         string Centre = @"   N
    |
@@ -252,7 +298,11 @@ W--+--E
 
         if(Location == "Your House")
         {
-            Console.WriteLine(North);
+            Console.WriteLine(NorthEast);
+        }
+        if(Location == "Weapon Master's Shop")
+        {
+            Console.WriteLine(NorthWest);
         }
         if(Location == "Town Square")
         {
@@ -276,7 +326,7 @@ W--+--E
         }
         if(Location == "Guard Post")
         {
-            Console.WriteLine(EastWest);
+            Console.WriteLine(EastWestSouth);
         }
         if(Location == "Bridge")
         {

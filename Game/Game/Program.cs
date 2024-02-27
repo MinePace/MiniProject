@@ -206,6 +206,11 @@ knowing your fate is entwined with theirs.",
                     }
 
             }
+
+            if (Player1.Location == "Weapon Master's Shop")
+            {
+                WeaponMaster.OpenShop(Player1);
+            }
         }
         
         
