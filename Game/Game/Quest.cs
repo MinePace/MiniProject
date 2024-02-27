@@ -14,7 +14,5 @@ public class Quest
         Description = description;
         QuestName = questName;
         QuestId = questId;
-    }
-
-    
+    } 
 }

@@ -71,7 +71,7 @@
             if(ThePlayer.HP <= 0)
             {
                Console.WriteLine($"You have lost");
-               Console.WriteLine($"You have a {CurrentMonster.ItemDrop.Name}");
+               Console.WriteLine($"You have lost a {CurrentMonster.ItemDrop.Name}");
                CurrentMonster.ItemDrop.DropQuantity -= 1;
                if (CurrentMonster.ItemDrop.DropQuantity < 0){CurrentMonster.ItemDrop.DropQuantity = 0;}
                ThePlayer.WipeOut();
@@ -80,21 +80,24 @@
          }
      }
 
-     public bool InfiniteMode()
+     public void InfiniteMode()
      {
       Console.WriteLine("You are gonna fight Knights untill you lose the will get increasingly stronger");
+      bool gamestate = true;
 
-      while(true)
+      while(gamestate == true)
       {
          FightMonster();
-         if(ThePlayer.HP == 0)
+         if(ThePlayer.Location == "Your House")
          {
-            ThePlayer.WipeOut();
-            return false;
+            gamestate = false;
          }
+         if(gamestate == true)
+         {
          CurrentMonster.MaxHP += 10;
          CurrentMonster.Weapon.MaxDamage += 10;
          ThePlayer.ChangeWeapon();
+         }
       }
      }
 }

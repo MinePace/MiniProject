@@ -177,6 +177,10 @@ public class Player
     {
         Console.WriteLine("You blacked out you wake up at home.");
         Location = "Your House";
+        if(Balance > 20)
+        {
+        Balance -= 20;
+        }
         HP = Max_hp;
     }
 

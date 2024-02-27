@@ -15,7 +15,7 @@ public class Program
         Weapon Goblindagger = new Weapon(1, 30, "Goblin Dagger", 2, 0.2);
         Weapon Zombiesword = new Weapon(2, 20, "Zombie sword", 2, 0.2);
         Weapon Spiderfangs = new Weapon(3, 40, "Spider fangs", 2, 0.2);
-        Weapon Snakefangs = new Weapon(4, 15, "Snake fangs", 1.5, 0.1);
+        Weapon Snakefangs = new Weapon(4, 150, "Snake fangs", 1.5, 0.1);
         Weapon Ratteeth = new Weapon(5, 15, "Rat teeth", 1.5, 0.15);
         Weapon KnightSword = new Weapon(160, 40,"Knights Weapon", 2, 0.2);
 
@@ -43,6 +43,7 @@ its blade as black as the void itself and pulsating with malevolent energy.
 It is adorned with intricate runes that writhe and twist with dark power, emanating an aura of dread to all who dare to gaze upon it.",1);
         MonsterDrop SnakeScales = new MonsterDrop("Snake scales", "Scales of a snake", 1);
         MonsterDrop RatTail = new MonsterDrop("Rat tail", "Tail from a rat", 1);
+        MonsterDrop KnightsHelmet = new MonsterDrop("Knights helmet", "Helmet of a knight", 1);
 
         // instancing Monsters
         Monster Goblin = new Monster(100, 100, 1, Goblindagger, "Goblin", GoblinTeeth, 0.80);
@@ -51,7 +52,7 @@ It is adorned with intricate runes that writhe and twist with dark power, emanat
         Monster Azazel1 = new Monster(2000, 2000, 666, BladeofDesolation, "Azazel", BladeofDesolation_item, 1);
         Monster Snake = new Monster(100, 100, 4, Snakefangs, "Snake", SnakeScales, 0.30);
         Monster Rat = new Monster(100, 100, 5, Ratteeth, "Rat", RatTail, 0.50);
-        Monster Knight = new Monster(100, 100, 5, KnightSword, "Knight", GoblinTeeth, 0);
+        Monster Knight = new Monster(100, 100, 5, KnightSword, "Knight", KnightsHelmet, 0);
 
 
         // instancing player
@@ -134,7 +135,6 @@ knowing your fate is entwined with theirs.",
         // MainBattle.FightMonster();
         // Player1.OpenInventory();
 
-        InfiniteMode.InfiniteMode();
         while(true)
         {
             Player1.Location = w.MovePlayer(Player1.Location);
@@ -151,17 +151,30 @@ knowing your fate is entwined with theirs.",
 
                 while (snake_kills != 3)
                 {
+                    if(Player1.Location == "Your House")
+                    {
+                        break;
+                    }
                     Console.WriteLine("You have 2 options:");
                     Console.WriteLine("1. Fight Snakes");
                     Console.WriteLine("2. Leave");
                     string Farmerfields = Console.ReadLine();
 
+
+
                     if (Farmerfields == "1")
                     {
                         //battle snake
                         Snakeinfields.FightMonster();
-                        snake_kills += 1;
+                        if (Player1.HP <0)
+                        {
+                            snake_kills += 1;
+                        }
                         Console.WriteLine($"killed {snake_kills}/3");
+                        if(Player1.HP == 0)
+                        {
+                            break;
+                        }
                     }
                     if (Farmerfields == "2")
                     {
