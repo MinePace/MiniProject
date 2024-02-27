@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pinda\\Documents\\GitHub\\MiniProject\\Game\\Game\\Game.csproj": {}
+    "C:\\Users\\joeyz\\Documents\\GitHub\\MiniProject\\Game\\Game\\Game.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pinda\\Documents\\GitHub\\MiniProject\\Game\\Game\\Game.csproj": {
+    "C:\\Users\\joeyz\\Documents\\GitHub\\MiniProject\\Game\\Game\\Game.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pinda\\Documents\\GitHub\\MiniProject\\Game\\Game\\Game.csproj",
+        "projectUniqueName": "C:\\Users\\joeyz\\Documents\\GitHub\\MiniProject\\Game\\Game\\Game.csproj",
         "projectName": "Game",
-        "projectPath": "C:\\Users\\pinda\\Documents\\GitHub\\MiniProject\\Game\\Game\\Game.csproj",
-        "packagesPath": "C:\\Users\\pinda\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pinda\\Documents\\GitHub\\MiniProject\\Game\\Game\\obj\\",
+        "projectPath": "C:\\Users\\joeyz\\Documents\\GitHub\\MiniProject\\Game\\Game\\Game.csproj",
+        "packagesPath": "C:\\Users\\joeyz\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\joeyz\\Documents\\GitHub\\MiniProject\\Game\\Game\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\pinda\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\joeyz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -32,11 +34,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -58,7 +55,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

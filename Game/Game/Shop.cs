@@ -98,7 +98,7 @@ class Shop
 
         if(pot_choice == 1)
         {
-            Console.WriteLine(" How much small potion to buy: ");
+            Console.WriteLine("How many small potions to buy: ");
             int pot1_choice = int.Parse(Console.ReadLine());
             int price_1 = pot1_choice * 25;
             if((player.Balance - pot1_choice) < 0){Console.WriteLine("Not enough balance");}
@@ -111,7 +111,7 @@ class Shop
         }
         if(pot_choice == 2)
         {
-            Console.WriteLine(" How much big potion to buy: ");
+            Console.WriteLine("How many big potions to buy: ");
             int pot1_choice = int.Parse(Console.ReadLine());
             int price_1 = pot1_choice * 100;
             if((player.Balance - pot1_choice) < 0){Console.WriteLine("Not enough balance");}
@@ -125,31 +125,31 @@ class Shop
         else{Console.WriteLine("Wong input");}
     }
 
-public bool OpenShop(Player player)
-{
-    while (true)
+    public bool OpenShop(Player player)
     {
-        Console.WriteLine("Welcome to the shop where you can buy potions and weapons\n(1) Buy Weapon\n(2) Buy Potions\n(3) Exit Shop");
-        int choice = int.Parse(Console.ReadLine());
+        while (true)
+        {
+            Console.WriteLine("Welcome to the shop where you can buy potions and weapons\n(1) Buy Weapon\n(2) Buy Potions\n(3) Exit Shop");
+            int choice = int.Parse(Console.ReadLine());
 
-        if (choice == 1)
-        {
-            BuyWeapon(player);
-        }
-        else if (choice == 2)
-        {
-            BuyPotions(player);
-        }
-        else if (choice == 3)
-        {
-            Console.WriteLine("You left the shop");
-            return false;
-        }
-        else
-        {
-            Console.WriteLine("Invalid input. Please choose a valid option.");
+            if (choice == 1)
+            {
+                BuyWeapon(player);
+            }
+            else if (choice == 2)
+            {
+                BuyPotions(player);
+            }
+            else if (choice == 3)
+            {
+                Console.WriteLine("You left the shop");
+                return false;
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Please choose a valid option.");
+            }
         }
     }
-}
 
 }
