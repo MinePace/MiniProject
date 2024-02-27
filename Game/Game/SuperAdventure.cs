@@ -33,7 +33,7 @@
                   return false;
                }
             }
-            if (choice == '1')
+            if (choice == '2')
             {
                if (ThePlayer.SmallPotionInventory.PotionQuantity == 0 && ThePlayer.BigPotionInventory.PotionQuantity == 0)
                {
@@ -83,7 +83,8 @@
 
      public void InfiniteMode()
      {
-      Console.WriteLine("You are gonna fight Knights untill you lose the will get increasingly stronger");
+      var w = new World();
+      w.Text_Display("You are gonna fight Knights untill you lose the will get increasingly stronger");
       bool gamestate = true;
 
       while(gamestate == true)
@@ -97,7 +98,26 @@
          {
          CurrentMonster.MaxHP += 10;
          CurrentMonster.Weapon.MaxDamage += 10;
-         ThePlayer.ChangeWeapon();
+         w.Text_Display("The Knights got stronger");
+         bool menu_pop = true;
+         while(menu_pop == true)
+         {
+            Console.WriteLine("(1) Fight next Knight\n(2) Change Weapon\n(3) Exit infinite mode");
+            string choice = Console.ReadLine();
+            if(choice == "1")
+            {
+               w.Text_Display("Next Knight coming up");
+               menu_pop = false;
+            }
+            else if(choice == "2"){ThePlayer.ChangeWeapon();}
+            else if(choice == "3")
+            {
+               w.Text_Display("You left the Infinite Battle");
+               menu_pop = false;
+               gamestate = false;
+            }
+            else{Console.WriteLine("Wrong input");}
+         }
          }
       }
      }

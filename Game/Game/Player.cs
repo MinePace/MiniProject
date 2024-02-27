@@ -37,6 +37,7 @@ public class Player
 
     public void AttackWeapon(Monster monster)
     {
+        var w = new World();
         Random random = new Random();
         double randomValue = random.NextDouble();
         
@@ -45,13 +46,13 @@ public class Player
             int critDamage = (int)(Weapon.MaxDamage * Weapon.CritDamage);
             monster.HP -= critDamage;
             if (monster.HP <= 0){monster.HP = 0;}
-            Console.WriteLine($"Critical Hit! The {monster.Name} took {critDamage} Damage from your {Weapon.Name}\nRemaining HP of {monster.Name}: {monster.HP}");
+            w.Text_Display($"Critical Hit! The {monster.Name} took {critDamage} Damage from your {Weapon.Name}\nRemaining HP of {monster.Name}: {monster.HP}");
         }
         else
         {
             monster.HP -= Weapon.MaxDamage;
             if (monster.HP <= 0){monster.HP = 0;}
-            Console.WriteLine($"The {monster.Name} took {Weapon.MaxDamage} Damage from your {Weapon.Name}\nRemaining HP of {monster.Name}: {monster.HP}");
+            w.Text_Display($"The {monster.Name} took {Weapon.MaxDamage} Damage from your {Weapon.Name}\nRemaining HP of {monster.Name}: {monster.HP}");
         }
     }
 
@@ -92,10 +93,11 @@ public class Player
 
     public void ConsumePotion(Potion potion)
     {
-        Console.WriteLine($"You consumed a {potion.Name} for {potion.PotionEffect} HP");
+        var w = new World();
+        w.Text_Display($"You consumed a {potion.Name} for {potion.PotionEffect} HP");
         HP += potion.PotionEffect;
         if (HP > Max_hp){HP = Max_hp;}
-        Console.WriteLine($"HP after consuming potion: {HP}");
+        w.Text_Display($"HP after consuming potion: {HP}");
     }
 
     public void GivePotion(Potion potion)
@@ -175,7 +177,8 @@ public class Player
 
     public void WipeOut()
     {
-        Console.WriteLine("You blacked out you wake up at home.");
+        var w = new World();
+        w.Text_Display("You blacked out you wake up at home.");
         Location = "Your House";
         if(Balance > 20)
         {
@@ -186,6 +189,7 @@ public class Player
 
     public void LevelUp()
     {
+        var w = new World();
         PlayerEXP += 20;
 
         if (PlayerEXP >= 100 + 20 * (PlayerLevel - 1))
@@ -194,7 +198,7 @@ public class Player
             Max_hp += 20;
             HP += 20;
             Weapon.CritChance += 0.5;
-            Console.WriteLine($"You have leveled up. New Level: {PlayerLevel}");
+            w.Text_Display($"You have leveled up. New Level: {PlayerLevel}");
             if (Max_hp > 500){Max_hp = 500;}
             if (Weapon.CritChance > 1){Weapon.CritChance = 1;}
         }

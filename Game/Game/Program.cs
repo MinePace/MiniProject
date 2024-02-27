@@ -58,7 +58,7 @@ It is adorned with intricate runes that writhe and twist with dark power, emanat
         // instancing player
         Console.WriteLine("What is your name?:");
         string playername = Console.ReadLine();
-        Player Player1 = new Player(100, "Your House", OldRustySword, playername , SmallHealthPotion, BigHealthPotion);
+        Player Player1 = new Player(100, "Your House", TESTING_PURPOSES, playername , SmallHealthPotion, BigHealthPotion);
 
         //random bog
         SuperAdventure MainBattle = new SuperAdventure(Goblin, Player1);
@@ -229,6 +229,11 @@ knowing your fate is entwined with theirs.",
             if (Player1.Location == "Weapon Master's Shop")
             {
                 WeaponMaster.OpenShop(Player1);
+            }
+
+            if(Player1.Location == "Knights Castle")
+            {
+                InfiniteMode.InfiniteMode();
             }
         }
         

@@ -44,6 +44,11 @@ class World
                             check = false;
                             break;
 
+                        case "S":
+                            NewLocation = "Knights Castle";
+                            check = false;
+                            break;
+
                         default:
                             Text_Display("That is not a valid input.");
                             break;
@@ -236,6 +241,20 @@ class World
                             break;
                     }
                 }
+                else if(currentPos == "Knights Castle")
+                {
+                    switch(input)
+                    {
+                        case "N":
+                            NewLocation = "Your House";
+                            check = false;
+                            break;
+
+                        default:
+                            Text_Display("That is not a valid input");
+                            break;
+                    }
+                }
             }
 
             else{Text_Display("That is not a valid input.");}
@@ -288,6 +307,14 @@ W--+--E
    |
    S";
 
+        string NorthEastSouth = @"
+N
+|        
++--E        
+|
+S
+        ";
+
         string Centre = @"   N
    |
 W--+--E
@@ -298,7 +325,7 @@ W--+--E
 
         if(Location == "Your House")
         {
-            Console.WriteLine(NorthEast);
+            Console.WriteLine(NorthEastSouth);
         }
         if(Location == "Weapon Master's Shop")
         {
@@ -335,6 +362,10 @@ W--+--E
         if(Location == "Spider Forest")
         {
             Console.WriteLine(West);
+        }
+        if(Location == "Knights Castle")
+        {
+            Console.WriteLine(North);
         }
     }
 }
