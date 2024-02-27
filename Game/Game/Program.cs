@@ -233,7 +233,8 @@ knowing your fate is entwined with theirs.",
 
             if(Player1.Location == "Knights Castle")
             {
-                InfiniteMode.InfiniteMode();
+                if(fieldFrenzyQuest.isTaskCompelete == true && gardenMenaceQuest.isTaskCompelete == true){InfiniteMode.InfiniteMode();}
+                else{Console.WriteLine("Not enough quests completed to enter the Knights Castle");}
             }
         }
         
