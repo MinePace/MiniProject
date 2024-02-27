@@ -107,28 +107,29 @@ public class Player
 
     public void OpenInventory()
     {
-        Console.WriteLine("Weapon Inventory: ");
+        var w = new World();
+        w.Text_Display("Weapon Inventory: ");
         foreach(Weapon weapon in WeaponsInventory)
         {
-            Console.WriteLine($"{weapon.Name}, Damage: {weapon.MaxDamage}, Crit DMG Multiplier: {weapon.CritDamage}, Crit Chance: {weapon.CritChance}");
+            w.Text_Display($"{weapon.Name}, Damage: {weapon.MaxDamage}, Crit DMG Multiplier: {weapon.CritDamage}, Crit Chance: {weapon.CritChance}");
         }
 
-        Console.WriteLine("\nDrops inventory: ");
+        w.Text_Display("\nDrops inventory: ");
         {
             foreach (MonsterDrop drop in MonsterDropsInventory)
             {
-                Console.WriteLine($"{drop.Name}, Description: {drop.Description}, Quantity: {drop.DropQuantity}");
+                w.Text_Display($"{drop.Name}, Description: {drop.Description}, Quantity: {drop.DropQuantity}");
             }
         }
 
-        Console.WriteLine("\nPotion inventory:");
+        w.Text_Display("\nPotion inventory:");
         if(SmallPotionInventory.PotionQuantity > 0)
         {
-        Console.WriteLine($"Small Health Potion, Amount left: {SmallPotionInventory.PotionQuantity}");
+        w.Text_Display($"Small Health Potion, Amount left: {SmallPotionInventory.PotionQuantity}");
         }
         if(BigPotionInventory.PotionQuantity > 0)
         {
-        Console.WriteLine($"Big Health Potion, Amount left: {BigPotionInventory.PotionQuantity}\n");
+        w.Text_Display($"Big Health Potion, Amount left: {BigPotionInventory.PotionQuantity}\n");
         }
     }
 
