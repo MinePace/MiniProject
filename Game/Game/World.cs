@@ -45,7 +45,7 @@ class World
                             break;
 
                         default:
-                            Console.WriteLine("That is not a valid input.");
+                            Text_Display("That is not a valid input.");
                             break;
 
                     }
@@ -76,7 +76,7 @@ class World
                             break;
 
                         default:
-                            Console.WriteLine("That is not a valid input.");
+                            Text_Display("That is not a valid input.");
                             break;
 
                     }
@@ -97,7 +97,7 @@ class World
                             break;
 
                         default:
-                            Console.WriteLine("That is not a valid input.");
+                            Text_Display("That is not a valid input.");
                             break;                    
 
                     }
@@ -113,7 +113,7 @@ class World
                             break;
 
                         default:
-                            Console.WriteLine("That is not a valid input.");
+                            Text_Display("That is not a valid input.");
                             break;                    
 
                     }
@@ -134,7 +134,7 @@ class World
                             break;
 
                         default:
-                            Console.WriteLine("That is not a valid input.");
+                            Text_Display("That is not a valid input.");
                             break;                    
 
                     }
@@ -150,7 +150,7 @@ class World
                             break;
 
                         default:
-                            Console.WriteLine("That is not a valid input.");
+                            Text_Display("That is not a valid input.");
                             break;                    
 
                     }
@@ -175,7 +175,7 @@ class World
                             break;
 
                         default:
-                            Console.WriteLine("That is not a valid input.");
+                            Text_Display("That is not a valid input.");
                             break;                 
 
                     }
@@ -196,7 +196,7 @@ class World
                             break;
 
                         default:
-                            Console.WriteLine("That is not a valid input.");
+                            Text_Display("That is not a valid input.");
                             break;
 
                     }
@@ -212,7 +212,7 @@ class World
                             break;
 
                         default:
-                            Console.WriteLine("That is not a valid input.");
+                            Text_Display("That is not a valid input.");
                             break;
 
                     }
@@ -232,17 +232,17 @@ class World
                             break;
 
                         default:
-                            Console.WriteLine("That is not a valid input");
+                            Text_Display("That is not a valid input");
                             break;
                     }
                 }
             }
 
-            else{Console.WriteLine("That is not a valid input.");}
+            else{Text_Display("That is not a valid input.");}
         
 
         }
-        Console.WriteLine($"Moving to {NewLocation}");
+        Text_Display($"Moving to {NewLocation}");
         return NewLocation;
     }
 
