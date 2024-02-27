@@ -35,6 +35,7 @@ public class Npc
         }
         else
         {
+            w.Text_Display($"{Quest.Description}");
             w.Text_Display($"Would you like to accept the quest '{Quest.QuestName}'? (Y/N)");
             string input = Console.ReadLine();
             if (input.ToLower() == "y")

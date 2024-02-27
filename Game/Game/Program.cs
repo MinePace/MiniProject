@@ -82,14 +82,14 @@ It is adorned with intricate runes that writhe and twist with dark power, emanat
         // instancing Quests
         Quest fieldFrenzyQuest = new Quest(
             @"Farmer Jones, a local farmer, is facing a dire situation with an unexpected snake infestation on his farm.
-            The snakes have disrupted daily operations, causing distress among the livestock and posing a threat to the crops.
-            Your task is to exterminate the snakes",
+The snakes have disrupted daily operations, causing distress among the livestock and posing a threat to the crops.
+Your task is to exterminate the snakes",
             "Field frenzy",
             1); 
         Quest gardenMenaceQuest = new Quest(
             @"Alchemist Isaac's garden has been overrun by an unusually aggressive breed of rats. 
-            The rodents, drawn by the potent scents of alchemical ingredients, pose a threat to the garden's flora. 
-            Isaac seeks brave adventurers to eliminate the rat infestation and restore peace to his sanctuary of alchemy.",
+The rodents, drawn by the potent scents of alchemical ingredients, pose a threat to the garden's flora. 
+Isaac seeks brave adventurers to eliminate the rat infestation and restore peace to his sanctuary of alchemy.",
             "Rat Troubles",
             2);
         Quest radiantResonanceQuest = new Quest(
