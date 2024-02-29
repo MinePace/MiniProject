@@ -140,26 +140,31 @@ public class Player
 
     public bool OpenOptions()
     {
+        var w = new World();
         while(true)
         {
             Console.WriteLine("(1) Switch weapon\n(2) Open inventory\n(3) Exit game (all progress lost)\n(4) Exit options");
-            string choice = Console.ReadLine();
-            switch(Convert.ToInt16(choice))
+            char choice = Convert.ToChar(Console.ReadLine());
+            switch(choice)
             {
-                case 1:
+                case '1':
                     ChangeWeapon();
                     break;
 
-                case 2:
+                case '2':
                     OpenInventory();
                     break;
 
-                case 3:
+                case '3':
                     ExitGame();
                     break;
 
-                case 4:
+                case '4':
                     return false;
+
+                default :
+                    w.Text_Display("That is not a valid input.");
+                    break;
             }
         }
     }

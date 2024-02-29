@@ -98,9 +98,9 @@ class Shop
     {
         var w = new World();
         w.Text_Display("(1) buy small potion (25 gold)\n(2) buy large potion (100 gold)");
-        int pot_choice = int.Parse(Console.ReadLine());
+        char pot_choice = Convert.ToChar(Console.ReadLine());
 
-        if(pot_choice == 1)
+        if(pot_choice == '1')
         {
             w.Text_Display("How many small potions to buy: ");
             int pot1_choice = int.Parse(Console.ReadLine());
@@ -113,7 +113,7 @@ class Shop
                 w.Text_Display("Potions succesfully purchased");
             }
         }
-        if(pot_choice == 2)
+        if(pot_choice == '2')
         {
             w.Text_Display("How many big potions to buy: ");
             int pot1_choice = int.Parse(Console.ReadLine());
@@ -135,17 +135,17 @@ class Shop
         {
             var w = new World();
             w.Text_Display("Welcome to the shop where you can buy potions and weapons\n(1) Buy Weapon\n(2) Buy Potions\n(3) Exit Shop");
-            int choice = int.Parse(Console.ReadLine());
+            char choice = Convert.ToChar(Console.ReadLine());
 
-            if (choice == 1)
+            if (choice == '1')
             {
                 BuyWeapon(player);
             }
-            else if (choice == 2)
+            else if (choice == '2')
             {
                 BuyPotions(player);
             }
-            else if (choice == 3)
+            else if (choice == '3')
             {
                 w.Text_Display("You left the shop");
                 return false;
